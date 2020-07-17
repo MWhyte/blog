@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Lesson 6 - Loops</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=4a9492e5e9.css" />
+
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="codenerve.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Lesson 6 - Loops" />
+    <meta property="og:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use Methods, pass parameters to them and get return values. But what if we want to call something many times consecutively.[/vc_column_text][us_separator size&#x3D;&amp;#8221;" />
+    <meta property="og:url" content="http://localhost:2368/lesson-6-loops/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/wordpress/2018/03/architecture-engineering-entertainment-106155.jpg" />
+    <meta property="article:published_time" content="2018-03-05T18:32:08.000Z" />
+    <meta property="article:modified_time" content="2020-06-09T20:30:55.000Z" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lesson 6 - Loops" />
+    <meta name="twitter:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use Methods, pass parameters to them and get return values. But what if we want to call something many times consecutively.[/vc_column_text][us_separator size&#x3D;&amp;#8221;" />
+    <meta name="twitter:url" content="http://localhost:2368/lesson-6-loops/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/wordpress/2018/03/architecture-engineering-entertainment-106155.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:site" content="ghost" />
+    <meta property="og:image:width" content="5184" />
+    <meta property="og:image:height" content="3292" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "codenerve.com",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.ghost.org/v1.0.0/images/ghost-logo.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael W",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
+            "width": 512,
+            "height": 512
+        },
+        "url": "http://localhost:2368/author/mrwhyte/",
+        "sameAs": []
+    },
+    "headline": "Lesson 6 - Loops",
+    "url": "http://localhost:2368/lesson-6-loops/",
+    "datePublished": "2018-03-05T18:32:08.000Z",
+    "dateModified": "2020-06-09T20:30:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/wordpress/2018/03/architecture-engineering-entertainment-106155.jpg",
+        "width": 5184,
+        "height": 3292
+    },
+    "description": "[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the\nlast lesson we learnt how to use Methods, pass parameters to them and get return\nvalues. But what if we want to call something many times\nconsecutively.[/vc_column_text][us_separator size&#x3D;”small” show_line&#x3D;”1″\nicon&#x3D;”fas|code”][us_message type&#x3D;”info”]The programming you have done so far in\nthis lesson series is known as ‘sequential programming’. Sequential programming\nmeans that the code has executed from the top of the ",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.25" />
+    <link rel="alternate" type="application/rss+xml" title="codenerve.com" href="../rss/index.html" />
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="../index.html"><img src="https://static.ghost.org/v1.0.0/images/ghost-logo.svg" alt="codenerve.com" /></a>
+            <div class="site-nav-content">
+                    <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-tag"><a href="../tag/getting-started/index.html">Tag</a></li>
+    <li class="nav-author"><a href="../author/ghost/index.html">Author</a></li>
+    <li class="nav-help"><a href="https://ghost.org/docs/">Help</a></li>
+</ul>
+
+                    <span class="nav-post-title ">Lesson 6 - Loops</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-fb" href="https://www.facebook.com/ghost" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm5.204 4.911h-3.546c-2.103 0-4.443.885-4.443 3.934.01 1.062 0 2.08 0 3.225h-2.433v3.872h2.509v11.147h4.61v-11.22h3.042l.275-3.81h-3.397s.007-1.695 0-2.187c0-1.205 1.253-1.136 1.329-1.136h2.054V4.911z" /></svg></a>
+                    <a class="social-link social-link-tw" href="https://twitter.com/ghost" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+
+
+                <h1 class="post-full-title">Lesson 6 - Loops</h1>
+
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" alt="Michael W" />
+                                    <div class="author-info">
+                                        <h2>Michael W</h2>
+                                        <p>Read <a href="../author/mrwhyte/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/mrwhyte/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" alt="Michael W" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/mrwhyte/index.html">Michael W</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2018-03-05">5 Mar 2018</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img
+                    srcset="../content/images/size/w300/wordpress/2018/03/architecture-engineering-entertainment-106155.jpg 300w,
+                           ../content/images/size/w600/wordpress/2018/03/architecture-engineering-entertainment-106155.jpgg 600w,
+                          ../content/images/size/w1000/wordpress/2018/03/architecture-engineering-entertainment-106155.jpgpg 1000w,
+                         ../content/images/size/w2000/wordpress/2018/03/architecture-engineering-entertainment-106155.jpgjpg 2000w"
+                    sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/wordpress/2018/03/architecture-engineering-entertainment-106155.jpg"
+                    alt="Lesson 6 - Loops"
+                />
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <!--kg-card-begin: html-->[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use Methods, pass parameters to them and get return values. But what if we want to call something many times consecutively.[/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][us_message type=&#8221;info&#8221;]The programming you have done so far in this lesson series is known as &#8216;sequential programming&#8217;. Sequential programming means that the code has executed from the top of the class to bottom. Each line of code will be read and fulfilled in sequential order.</p>
+<p>In the next few lessons of the series, we are going to show you that code can be executed only if certain &#8216;conditions&#8217; are met. First, we&#8217;ll look at loops and in the next lesson conditional statements.[/us_message][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][us_iconbox icon=&#8221;fas|code&#8221; size=&#8221;48px&#8221; iconpos=&#8221;left&#8221; title=&#8221;Downloads&#8221; alignment=&#8221;left&#8221;]To get started you can use the basic <a href="http://localhost:2368/content/images/wordpress/2016/01/StarterProject.zip">starter project</a> and follow the steps to compile the code examples for the lesson.[/us_iconbox][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][vc_column_text]There are three main loops we can use in Java:</p>
+<ul>
+<li>while</li>
+<li>do while</li>
+<li>for</li>
+</ul>
+<p>Since Java version 5, we also have the &#8216;<em>enhanced&#8217; version of the for loop</em>. We&#8217;ll be covering each loop in this lesson and when to use them. Let&#8217;s get started.[/vc_column_text][us_separator show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][vc_column_text]
+<h3>The Stupid Way</h3>
+<p>Ok, Let&#8217;s have a look at something you have already learnt in previous lessons and how we can improve upon it using loops. Have a look at the following code:</p>
+<pre class="lang:java decode:true">private static void theStupidWay() {
+    System.out.println(1);
+    System.out.println(2);
+    System.out.println(3);
+}</pre>
+<p>So fairly basic right. Create a class called &#8216;Loops&#8217;, copy this into your starter project, create a main method and run the code to view its output.</p>
+<p>So there&#8217;s nothing particularly wrong with this, but what if we wanted to print a thousand numbers? The code would get long and unreadable to say the very least. Thankfully there&#8217;s a way to tell java to stop executing sequentially (one line after another, always downwards until the end) and instead, perform the same section of code more than once. <span style="text-decoration: underline;">This is the powerful concept of a loop.</span>[/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3>The While Loop</h3>
+<p>The first loop in this lesson is the while loop. The while loop reads in plain English as:</p>
+<p><strong>While </strong><b>some expression is true; execute the code inside the loop. Then recheck the expression.</b></p>
+<p>Let&#8217;s see an example:</p>
+<pre class="lang:java decode:true">private static void basicWhileLoop() {
+   int i = 1;
+
+while (i &lt; 4){
+   System.out.println(i);
+   i++;
+}</pre>
+<p>Ok as usual try it out, copy the method into your Loops class and make sure to call it from your main method. You should notice that when you run the code, you get the same output as the previous code example.</p>
+<p>So what&#8217;s happening? Let&#8217;s take it step by step:</p>
+<ol>
+<li>When the code is called, i is created and initialized with a value of 1.</li>
+<li>The code then goes to the while expression and says: if i (i equals 1) is less than 4 return true</li>
+<li>The expression is true so we go inside the loop and i is printed</li>
+<li>i is then incremented by 1 (i now equals 2) and the code jumps back up to the while expression</li>
+<li>This time i is still less than 4 so again i is printed and incremented by 1</li>
+<li>This continues in a loop until i = 4</li>
+<li>The while expression is evaluated one more time. i (4) &lt; 4 now gives a result of false, since 4 is not less than 4. The loop finishes without printing again and moves on downwards.</li>
+</ol>
+<p>Try changing the number 4 inside the while expression and run the code. Note the larger the number is, the longer the code will take to execute. This is due to the number of cycles the loop will go through until the code reaches its end.[/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3>Another While Loop</h3>
+<p>Ok, we&#8217;re going to have a look at another while loop. This time we are going to use our knowledge of methods and their ability to take in parameters. In this case, the parameter is going to be the number of times the loop is to be executed:</p>
+<pre class="lang:java decode:true">private static void anotherWhileLoop(int maxValue) {
+    int i = 1;
+
+    while (i &lt; maxValue){
+        System.out.println(i);
+        i++;
+    }
+}</pre>
+<p>Copy the code, call it from your main method and run it. To call the code, you&#8217;ll need to call the method and pass a value for the <em>maxValue</em>:</p>
+<pre class="lang:java decode:true">anotherWhileLoop(4);</pre>
+<p>This parameterised version of the method is now much more useful to us as we can call the same code as before but with different results depending on how many times we loop through the code. Real-life applications could be adding charges to someones account based on how many days late they have returned a book. Or calculating compound interest over x number of months. The possibilities here are endless.</p>
+<p>Ok, let&#8217;s move on.[/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3>The Do &#8230; While Loop</h3>
+<p>Time to look at the do while loop. This loop is very similar to the while loop. Let&#8217;s look at the syntax and see if you can see what the difference is:</p>
+<pre class="lang:java decode:true">private static void aDoLoop() {
+    int i = 5;
+
+    do {
+        System.out.println(i);
+        i++;
+    } while (i &lt; 4);
+}</pre>
+<p>So there is a clear difference regarding the syntax of the Do loop. But the actual difference between these loops is a bit more subtle. Notice the While condition is at the end of the code block. This means the code is executed once before we evaluate whether i &lt; 4. If i equalled 5, for example, the code would print 5 before deciding not to loop. Try it for yourself![/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3>The For Loop</h3>
+<p>Ok, next up its the for loop. Let&#8217;s check it out:</p>
+<pre class="lang:java decode:true">private static void theForLoop() {
+
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.println(i);
+    }
+}</pre>
+<p>Copy the code, run it, etc. The first thing most people will think is whats the difference!? We used a while loop to do the same thing just a few minutes ago. And your right to believe that, there are ways to implement either loop and obtain the same results.</p>
+<p>In general, however, we use this rule of thumb to decide which loop to use: <span style="text-decoration: underline;">For loops are used when you know how many times you need to loop. While loops are used to loop until an event occurs</span>. So use a for loop if you always want to loop 100 times. And, a while loop if you want to loop until some condition or event occurs (i.e. i is no longer less than some number).[/vc_column_text][us_separator size=&#8221;small&#8221; show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3>The enhanced For Loop</h3>
+<p>Let&#8217;s take a very brief look at the enhanced loop. We&#8217;re not going to go into much detail into this loop as it covers &#8216;Collections&#8217; which is something we will learn about in our intermediate course. But let&#8217;s just be aware of this loop and its syntax:</p>
+<pre class="lang:java decode:true">private static void theEnhancedForLoop() {
+
+    List&lt;Integer&gt; array = new ArrayList&lt;Integer&gt;();
+    array.add(1);
+    array.add(2);
+    array.add(3);
+    array.add(4);
+    array.add(5);
+
+    for (int x : array){
+         System.out.println(x);
+    }
+}</pre>
+<p>So in this method, we have created a Collection called an ArrayList. In this case, it is a list of Integers, but it can hold any type. The last few lines of the method is our enhanced for loop. This loop is capable of looping (or iterating) through each item (x) in our collection (array). We will use this more in the collections lessons.[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][us_separator show_line=&#8221;1&#8243; icon=&#8221;fas|code&#8221;][vc_column_text]
+<h3><a href="https://www.codenerve.com/beginner-java/lesson-7-conditional-statements/">Next: Conditional Expressions</a></h3>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row][vc_column][us_post_navigation layout=&#8221;sided&#8221;][/vc_column][/vc_row]
+<!--kg-card-end: html-->
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post ">
+
+    <a class="post-card-image-link" href="../lesson-7-conditional-statements/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/wordpress/2019/04/business-code-codes-207580.jpg 300w,
+                   ../content/images/size/w600/wordpress/2019/04/business-code-codes-207580.jpgg 600w,
+                  ../content/images/size/w1000/wordpress/2019/04/business-code-codes-207580.jpgpg 1000w,
+                 ../content/images/size/w2000/wordpress/2019/04/business-code-codes-207580.jpgjpg 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            loading="lazy"
+            src="../content/images/size/w600/wordpress/2019/04/business-code-codes-207580.jpg"
+            alt="Lesson 7 - Conditional Statements"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../lesson-7-conditional-statements/index.html">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">Lesson 7 - Conditional Statements</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use the different types of Loops. But there</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Michael W
+                    </div>
+            
+                    <a href="../author/mrwhyte/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" alt="Michael W" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/mrwhyte/index.html">Michael W</a></span>
+                <span class="post-card-byline-date"><time datetime="2019-04-03">3 Apr 2019</time> <span class="bull">&bull;</span> 6 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post ">
+
+    <a class="post-card-image-link" href="../lesson-5-methods/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/wordpress/2018/02/block-cube-foam-1340185.jpg 300w,
+                   ../content/images/size/w600/wordpress/2018/02/block-cube-foam-1340185.jpgg 600w,
+                  ../content/images/size/w1000/wordpress/2018/02/block-cube-foam-1340185.jpgpg 1000w,
+                 ../content/images/size/w2000/wordpress/2018/02/block-cube-foam-1340185.jpgjpg 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            loading="lazy"
+            src="../content/images/size/w600/wordpress/2018/02/block-cube-foam-1340185.jpg"
+            alt="Lesson 5 - Methods"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../lesson-5-methods/index.html">
+
+            <header class="post-card-header">
+                <h2 class="post-card-title">Lesson 5 - Methods</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>[vc_row][vc_column][vc_column_text]Alright, it&#8217;s time now to learn about Methods. Methods are a collection of statements grouped to perform a specific operation. For</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Michael W
+                    </div>
+            
+                    <a href="../author/mrwhyte/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" alt="Michael W" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/mrwhyte/index.html">Michael W</a></span>
+                <span class="post-card-byline-date"><time datetime="2018-02-10">10 Feb 2018</time> <span class="bull">&bull;</span> 4 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../index.html">codenerve.com</a> &copy; 2020</section>
+                <nav class="site-footer-nav">
+                    <a href="../index.html">Latest Posts</a>
+                    <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/ghost" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js%3Fv=4a9492e5e9"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    
+
+</body>
+</html>

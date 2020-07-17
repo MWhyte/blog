@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Lesson 7 - Conditional Statements</title>
+
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="codenerve.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Lesson 7 - Conditional Statements" />
+    <meta property="og:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use the different types of Loops. But there is another way to change the control flow of our program called branching.[/vc_column_text][us_separator size&#x3D;&amp;#8221;" />
+    <meta property="og:url" content="http://localhost:2368/lesson-7-conditional-statements/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/wordpress/2019/04/business-code-codes-207580.jpg" />
+    <meta property="article:published_time" content="2019-04-03T21:18:19.000Z" />
+    <meta property="article:modified_time" content="2020-06-09T20:32:53.000Z" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lesson 7 - Conditional Statements" />
+    <meta name="twitter:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use the different types of Loops. But there is another way to change the control flow of our program called branching.[/vc_column_text][us_separator size&#x3D;&amp;#8221;" />
+    <meta name="twitter:url" content="http://localhost:2368/lesson-7-conditional-statements/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/wordpress/2019/04/business-code-codes-207580.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:site" content="ghost" />
+    <meta property="og:image:width" content="3827" />
+    <meta property="og:image:height" content="2870" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "codenerve.com",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.ghost.org/v1.0.0/images/ghost-logo.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael W",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
+            "width": 512,
+            "height": 512
+        },
+        "url": "http://localhost:2368/author/mrwhyte/",
+        "sameAs": []
+    },
+    "headline": "Lesson 7 - Conditional Statements",
+    "url": "http://localhost:2368/lesson-7-conditional-statements/",
+    "datePublished": "2019-04-03T21:18:19.000Z",
+    "dateModified": "2020-06-09T20:32:53.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/wordpress/2019/04/business-code-codes-207580.jpg",
+        "width": 3827,
+        "height": 2870
+    },
+    "description": "[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the\nlast lesson we learnt how to use the different types of Loops. But there is\nanother way to change the control flow of our program called\nbranching.[/vc_column_text][us_separator size&#x3D;”small” show_line&#x3D;”1″\nicon&#x3D;”fas|code”][us_message type&#x3D;”info”]Whats control flow?\n\nMost of the code you have written so far gets executed from top to bottom in the\norder that you have written it. Control flow statements, however, break up t",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.25" />
+    <link rel="alternate" type="application/rss+xml" title="codenerve.com" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: #1292EE;
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: #000;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #dc0050;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                codenerve.com
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Lesson 7 - Conditional Statements</h1>
+                <section class="post-meta">
+                    Michael W -
+                    <time class="post-date" datetime="2019-04-03">03 Apr 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="http://localhost:2368/content/images/wordpress/2019/04/business-code-codes-207580.jpg" width="600" height="340" layout="responsive"></amp-img>
+            </figure>
+            <section class="post-content">
+
+                [vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last lesson we learnt how to use the different types of Loops. But there is another way to change the control flow of our program called branching.[/vc_column_text][us_separator size=”small” show_line=”1″ icon=”fas|code”][us_message type=”info”]Whats control flow?<p></p>
+<p>Most of the code you have written so far gets executed from top to bottom in the order that you have written it. Control flow statements, however, break up this flow by employing decision making, looping, and branching, enabling your program to execute particular blocks of code depending on whether or not certain conditions are met.[/us_message][us_separator size=”small” show_line=”1″ icon=”fas|code”][us_iconbox icon=”fas|code” size=”48px” iconpos=”left” title=”Downloads” alignment=”left”]To get started you can use the basic <a href="http://localhost:2368/content/images/wordpress/2016/01/StarterProject.zip">starter project</a> and follow the steps to compile the code examples for the lesson.[/us_iconbox][us_separator show_line=”1″ icon=”fas|code”][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][vc_column_text]
+</p><h3>If Statements</h3>
+<p>Let’s dive straight in and set up a new class with a main method. The first example is a basic for loop:</p>
+<pre class="lang:java decode:true">private static void anIfStatement() {
+   int x = 1;
+
+   if (x &gt;=0){
+     System.out.println("X is a positive number");
+   }
+}</pre>
+<p>So hopefully the syntax is familiar from the last lesson on <a href="https://www.codenerve.com/beginner-java/lesson-6-loops/">loops</a>. In plain English this code can be read:</p>
+<p>“If x is greater or equal to zero. Execute the code inside the if statement (the curly braces {})”. If it is not greater or equal to zero don’t.</p>
+<p>As always copy the code, call it from your main method and run it. Change the value of x to say -2 and rerun it. Do you see the output this time?</p>
+<h6>Another If statement</h6>
+<p>Ok, before we continue let’s have a look at another if condition. This one is going to pass a parameter into a method and based on the result of the if condition inside, return one of the two possible results:</p>
+<pre class="lang:java decode:true">private static String anotherIfStatement(int grade) {
+
+    if (grade &gt;=40){
+        return "Congratulations you have passed the exam!";
+    }
+    return "Unfortunately you have failed.";
+}</pre>
+<p><span><em>If you have forgotten about the keyword ‘return’ or passing parameters to methods, please revisit <a title="Lesson 5 – Methods" href="https://www.codenerve.com/beginner-java/lesson-5-methods/"><span>lesson 5</span></a> on methods.</em></span></p>
+<p>As you can see, this method takes in an <em>int</em> called grade and returns a String. Which string depends on the grade parameters value. If the grade is greater or equal to 40, then the if condition is true and it will execute the code inside the if condition. Thus returning the first string. If it is not &gt;=40, then the if the condition is false, it will skip over the code enclosed in the if condition and it will return the second string.</p>
+<p>To run the code add the following to the main method and change the grade parameter to return the different strings:</p>
+<pre class="lang:java decode:true">String passOrFail = anotherIfStatement(10);
+System.out.println(passOrFail);</pre>
+[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+<h3>If … Else Statements</h3>
+<p>Ok, time for another conditional. This time, let’s look at the If .. Else condition:</p>
+<pre class="lang:java decode:true">	private static String anIfElseStatement(int grade) {
+
+		if (grade &gt;=40){
+			return "Congratulations you have passed the exam!";
+		} else {
+			return "Unfortunately you have failed.";
+		}
+	}</pre>
+<p>Run the code from your main method and change the grade parameter. After you do this, you may be wondering what the difference is between the if else and the if condition we looked at previously.</p>
+<p>The difference is that the if statement either executes or does not depending on the condition. Whereas, the if else condition must execute one of the two possible branches. i.e. it must print one of the two strings inside the if else condition.</p>
+<p>Therefore if conditions give you the option to run something or not. If else’s make a choice which code block to execute.[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>If else if conditions</h3>
+<p>Following on from the ‘if else’ condition we are now going to have a look at the ‘if else if’ condition! This construct follows on quite naturally from the last example so let’s just take a look first:</p>
+<pre class="lang:java decode:true">private static String anotherIfElseIfStatement(int grade) {
+
+     if (grade &gt;=70){
+         return "Congratulations you have aced the exam!";
+     } else if (grade &gt;=40) {
+         return "Congratulations you have passed the exam!";
+     } else {
+         return "Unfortunately you have failed.";
+     }
+}</pre>
+<p>So as you can see we can effectively join <em>if else</em> statements together. It’s important to know here however that only one <em>if</em> condition (or the final else) will ever be executed. In the case above thats a bit obvious since the code block inside each <em>if</em> has a return statement. Therefore once one <em>if</em> is true and the code is executed. It will return a value from the method.</p>
+<p>But what about the following method?</p>
+<pre class="lang:java decode:true">private static String anotherIfElseIfStatement(int grade) {
+
+   String result;
+
+   if (grade &gt;=70){
+       result = "Congratulations you have aced the exam!";
+   } else if (grade &gt;=40) {
+       result = "Congratulations you have passed the exam!";
+   } else {
+       result = "Unfortunately you have failed.";
+   }
+   return result;
+}</pre>
+<p>If I pass in a grade of 80, you could easily be confused into thinking that the first <em>if</em> would set the String <em>result</em> then the second <em>if</em> would set the String <em>result</em> again. Since both of these <em>if</em> conditions are true. But, this is not the case. Java will execute the first true <em>if</em> condition and skip over the rest. Or, if no <em>if</em> condition is true only run the <em>else</em> block[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>Switch Statement</h3>
+<p>Switch statements are useful when there are many finite paths the code can go down. Unlike if and if else statements switch statements do not evaluate expressions such as greater than. A switch works with the byte, short, char, and int primitive data types. As well as Strings and Enums(we will cover these later). So let us take a look at our example:</p>
+<pre class="lang:java decode:true">private static String aSwitchStatement(int monthOfTheYear) {
+
+        String month;
+
+        switch (monthOfTheYear){
+            case 1:
+                month = "January";
+                break;
+            case 2:
+                month = "February";
+                break;
+            case 3:
+                month = "March";
+                break;
+            case 4:
+                month = "April";
+                break;
+            case 5:
+                month = "May";
+                break;
+            case 6:
+                month = "June";
+                break;
+            case 7:
+                month = "July";
+                break;
+            case 8:
+                month = "August";
+                break;
+            case 9:
+                month = "September";
+                break;
+            case 10:
+                month = "October";
+                break;
+            case 11:
+                month = "November";
+                break;
+            case 12:
+                month = "December";
+                break;
+            default:
+                month = "Unknown";
+                break;
+        }
+        return month;
+}</pre>
+<p>This method converts a numerical representation of a Month and returns the name of the month as a string. So in this example, we are ‘switching’ on an int called <em>monthOfTheYear.</em> You can see there are 12 possible cases and one default case. This means that if we enter 1, case 1 will be matched and the month string will be set to January. If you enter the value 13, no case will be matched and the default case will be used.</p>
+<p>When a pattern is matched and the code inside the case is executed we call <em>break;</em> This is something that we need to look out for. If we do not call break the code will move down into the next case statement! For example:</p>
+<pre class="lang:java decode:true">            case 5:
+                month = "May";
+                // falls through here
+            case 6:
+                month = "June";</pre>
+<p>If we enter 5 we expect the method to return May. But in fact, case 5 will match and <i>month</i> will be set to May, then it will fall through into case 6 and set <i>month</i> to June and continue until there is a break or we have reached the end!</p>
+<p>In some cases, this is perfectly acceptable, and we may want to use this behaviour. However, it is also the source of potential bugs in the real world.[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]At this stage, I would encourage you to spend some time writing your own conditional statements. There was a lot of information in this lesson and practice and hands on experience are the best way to learn.</p>
+<p>Think of some real world problems and try to find the most suitable construct to implement it. Here are some examples to get you started:</p>
+<ul>
+<li>Calculating Tax using bands that are based on a persons salary</li>
+<li>Charge someone for a late return</li>
+<li>Calculating postage based on distance</li>
+<li>Converting months to seasons</li>
+</ul>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+<h3><a href="https://www.codenerve.com/beginner-java/lesson-8-arrays/">Next: Arrays</a></h3>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row][vc_column][us_post_navigation layout=”sided”][/vc_column][/vc_row]
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+        <h3>codenerve.com</h3>
+            <p>Thoughts, stories and ideas.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a></span>
+    </footer>
+</body>
+</html>

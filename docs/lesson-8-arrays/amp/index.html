@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Lesson 8 - Arrays</title>
+
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="codenerve.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Lesson 8 - Arrays" />
+    <meta property="og:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last few lessons we learn&amp;#8217;t how to use Conditional statements and loops which we are going to build upon in this lesson. However, so far in the lesson series we have used" />
+    <meta property="og:url" content="http://localhost:2368/lesson-8-arrays/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/wordpress/2019/04/array-bright-cloth-5872.jpg" />
+    <meta property="article:published_time" content="2019-04-04T18:20:27.000Z" />
+    <meta property="article:modified_time" content="2020-06-09T20:35:32.000Z" />
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lesson 8 - Arrays" />
+    <meta name="twitter:description" content="[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last few lessons we learn&amp;#8217;t how to use Conditional statements and loops which we are going to build upon in this lesson. However, so far in the lesson series we have used" />
+    <meta name="twitter:url" content="http://localhost:2368/lesson-8-arrays/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/wordpress/2019/04/array-bright-cloth-5872.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:site" content="ghost" />
+    <meta property="og:image:width" content="5215" />
+    <meta property="og:image:height" content="3477" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "codenerve.com",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.ghost.org/v1.0.0/images/ghost-logo.svg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael W",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
+            "width": 512,
+            "height": 512
+        },
+        "url": "http://localhost:2368/author/mrwhyte/",
+        "sameAs": []
+    },
+    "headline": "Lesson 8 - Arrays",
+    "url": "http://localhost:2368/lesson-8-arrays/",
+    "datePublished": "2019-04-04T18:20:27.000Z",
+    "dateModified": "2020-06-09T20:35:32.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/wordpress/2019/04/array-bright-cloth-5872.jpg",
+        "width": 5215,
+        "height": 3477
+    },
+    "description": "[vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the\nlast few lessons we learn’t how to use Conditional statements and loops which we\nare going to build upon in this lesson. However, so far in the lesson series we\nhave used the basic primitive types\n[https://www.codenerve.com/beginner-java/lesson-2-primitive-types/]and Strings\n[https://www.codenerve.com/beginner-java/lesson-4-strings/]to hold data for\nus. In this lesson its time to cover a new data type called an Array.\n[",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.25" />
+    <link rel="alternate" type="application/rss+xml" title="codenerve.com" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: #1292EE;
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: #000;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #dc0050;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                codenerve.com
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Lesson 8 - Arrays</h1>
+                <section class="post-meta">
+                    Michael W -
+                    <time class="post-date" datetime="2019-04-04">04 Apr 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="http://localhost:2368/content/images/wordpress/2019/04/array-bright-cloth-5872.jpg" width="600" height="340" layout="responsive"></amp-img>
+            </figure>
+            <section class="post-content">
+
+                [vc_row][vc_column][vc_row_inner][vc_column_inner][vc_column_text]Ok, In the last few lessons we learn’t how to use Conditional statements and loops which we are going to build upon in this lesson. However, so far in the lesson series we have used the <a title="Lesson 2 – Primitive Types" href="https://www.codenerve.com/beginner-java/lesson-2-primitive-types/" target="_blank" rel="noopener noreferrer">basic primitive types</a> and <a title="Lesson 4 – Strings" href="https://www.codenerve.com/beginner-java/lesson-4-strings/" target="_blank" rel="noopener noreferrer">Strings</a> to hold data for us. In this lesson its time to cover a new data type called an <em>Array.</em>[/vc_column_text][us_separator size=”small” show_line=”1″ icon=”fas|code”][us_iconbox icon=”fas|code” size=”48px” iconpos=”left” title=”Downloads” alignment=”left”]To get started you can use the basic <a href="http://localhost:2368/content/images/wordpress/2016/01/StarterProject.zip">starter project</a> and follow the steps to compile the code examples for the lesson.[/us_iconbox][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+<h3>What are Arrays?</h3>
+<p>An array is a container that holds a number of values of a particular type. Imagine we had to declare a number of book titles for example. With the variables you’ve been taught in previous lessons we could write:</p>
+<pre class="lang:java decode:true">        String title1 = "a";
+        String title2 = "b";
+        String title3 = "c";
+        String title4 = "d";</pre>
+<p>This isn’t a bad solution if there are only 2 or 3 books but what if there’s ten or a hundred book’s? For this we are better using an array that can hold large numbers of related data.[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>Creating Arrays</h3>
+<p>Ok so let’s create one! First off let’s create a new class called Arrays.[/vc_column_text][vc_column_text]To create an array we use the following syntax:</p>
+<pre class="lang:java decode:true">String[] books = {"1984", "Hitchhikers Guide to the galaxy", "Harry Potter", "A tale of two cities"};</pre>
+<p>Here we have an array of four elements. The elements are of type String, there values are our book titles. To find out the length of an array we can use the .length variable contained inside an array object. For example:</p>
+<pre class="lang:java decode:true">System.out.println("There are " + books.length + " books in the array");</pre>
+<p>Will output:</p>
+<pre class="lang:java decode:true ">"There are 4 books in the array"</pre>
+[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+<h3>Accessing elements in Arrays</h3>
+<p>To access one of our titles we can use the elements numerical index. But first let me explain this a little more. To help do this I’m going to visualise the array we created above:</p>
+<p><a href="https://www.ni-geeks.com/wp-content/uploads/2014/08/Screen-Shot-2014-09-23-at-18.34.17.png"></a></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>An array consists of a number of elements. The number of elements depends on the number of values you inserted when you created the array. You should note that the first elements index is zero. So to access the first element in the array we would use:</p>
+<pre class="lang:java decode:true ">books[0]</pre>
+<p>Try it! Create our array above and use the following to print out the second element in the array:</p>
+<pre class="lang:java decode:true ">System.out.println("Our second title is: " + books[1]);</pre>
+[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+<h3>Iterating through Arrays</h3>
+<p>So now you’re able to extract values from the array which is great. But now were going to combine our knowledge of arrays with an older lesson on <a title="Lesson 6 – Loops" href="https://www.codenerve.com/beginner-java/lesson-6-loops/">loops</a>. Iterating through an array is a very common pattern in programming and will be a very powerful tool to have. Lets look at the following code:</p>
+<pre class="lang:java decode:true ">    private static void iteratingThroughAnArray() {
+
+        String[] books = {"1984", "Hitchhikers Guide to the galaxy", "Harry Potter", "A tale of two cities"};
+
+        for (int i = 0; i &lt; books.length; i++) {
+            System.out.println("Book " + i + " Title: " + books[i]);
+        }
+    }</pre>
+<p>Add this method to your Arrays class and call it from your main method. You will see in the console output it will loop through every element in the array you created and print each title out.</p>
+<p>Whats interesting here is the use of the loops <em>i</em> variable. As the for loop steps through each loop, <em>i</em> is incremented. As you can see it starts at zero. Which is perfect for accessing the first element in the array. We also set the upper limit of the array to be <em>&lt; books.length. </em>This is very important! I encourage you to try to access an element in the array that doesn’t exist to see why! Try books[99] for example (Hint: You will see lots of red!).[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>Reminder of the Java 5 Enhanced For loop</h3>
+<p>So now were going to remind ourselves of the enhanced for loop. We briefly covered this in the <a title="Lesson 6 – Loops" href="https://www.codenerve.com/beginner-java/lesson-6-loops/">loops lesson</a>. Lets have a look at another method which does the same thing as the previous example only using the enhanced loop:</p>
+<pre class="lang:java decode:true ">    private static void usingTheEnhancedForLoop() {
+
+        String[] books = {"1984", "Hitchhikers Guide to the galaxy", "Harry Potter", "A tale of two cities"};
+
+        for (String book : books) {
+            System.out.println("Title: " + book);
+        }
+
+    }</pre>
+<p>You’ll see from the output this is (almost) the same method as before. An advantage however is the i variable and the books.length are not required. This is therefore less prone to errors (like the ArrayIndexOutOfBoundsException you would have seen if you’d tried to access an element that doesn’t exist).</p>
+<p>It also has a few drawbacks. You cannot access the numerical index of the current element in the array because there is no i variable and also these loops can only go in one direction. In the previous loop you could have declared your array like:</p>
+<pre class="lang:java decode:true">    private static void iteratingThroughAnArray_backwards() {
+
+        String[] books = {"1984", "Hitchhikers Guide to the galaxy", "Harry Potter", "A tale of two cities"};
+
+        for (int i = books.length -1; i &gt;= 0; i--) {
+            System.out.println("Book " + i + " Title: " + books[i]);
+        }
+    }</pre>
+<p>This array will print the titles in the reverse order. This is why its useful to learn both arrays depending on what you need to do with your array.[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>Arrays With Methods</h3>
+<p>As with all the other types you have learnt, arrays can be passed into and returned from methods.</p>
+<p>Passing in arrays:</p>
+<pre class="lang:java decode:true">    private static void usingArraysInMethods(String[] anotherStringArray) {
+        // arrays like other data types can be passed into methods and used
+
+        for (String book : anotherStringArray) {
+            System.out.println("Title: " + book);
+        }
+    }</pre>
+<p>Passing in and returning arrays:</p>
+<pre class="lang:java decode:true ">    private static String[] returningArraysFromMethods(String[] anotherStringArray) {
+
+        // arrays like other data types can be passed into methods and also returned
+
+        for (String book : anotherStringArray) {
+            // lets make all items in the array lower case
+            book = book.toLowerCase();
+
+            System.out.println("Title: " + book);
+        }
+        return anotherStringArray;
+    }</pre>
+<p>The example above takes in the array makes all values lower case and returns the array.[/vc_column_text][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3>2D Arrays</h3>
+<p>Are last example in the lesson is the Two Dimensional array. So far in this lesson we have just been using strings but you can use any type. We could create arrays of type int, boolean OR another array!</p>
+<p>The easiest way to think of a 2D array is an array of arrays. Lets have a look at creating one:</p>
+<pre class="lang:java decode:true">    private static void AnotherTwoDimensionalArray() {
+        String[][] books = {
+                {"1984", "George Orwell", "£9.99"},
+                {"Hitchhikers Guide to the galaxy", "Douglas Adams", "£9.99"}};
+
+        for (int i = 0; i &lt; books.length; i++) {
+
+            System.out.println("Title: " + books[i][0] + " Author: " + books[i][1] + " Price: " + books[i][2]);
+        }
+    }</pre>
+<p>Creating the array you will see we use two groups of square brackets instead of one to declare a 2d array:</p>
+<pre class="lang:java decode:true">String[][] books</pre>
+<p>You will also see that when adding our values to the 2d array there are arrays inside of the main array:</p>
+<pre class="lang:java decode:true">{
+    {"1984", "George Orwell", "£9.99"},
+    {"Hitchhikers Guide to the galaxy", "Douglas Adams", "£9.99"}
+};</pre>
+<p>Accessing values in the array is also different. We again need to use two square brackets with two numerical indexes:</p>
+<pre class="lang:java decode:true">books[x][y]</pre>
+<p>To explain this lets use another diagram:</p>
+<p><a href="https://www.ni-geeks.com/wp-content/uploads/2014/08/Screen-Shot-2014-09-23-at-21.55.36.png"></a></p>
+<p>As mentioned we can access a 2d with a two numerical indexes x and y in this case. The diagram shows the x index accessing the first element in the outside array and the y accessing an element in the array that is referred to by x.</p>
+<p>Surprisingly the java spec limits the amount of dimensions you can create on an array to 255! I have yet to need anything beyond 3 and I can only imagine that to require a 255d array you would need to be a physics genius!</p>
+<p>As always try to get the code running and play around with it. See if you can iterate through the 2d array above and access the elements within it.[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner][vc_column_inner][us_separator show_line=”1″ icon=”fas|code”][vc_column_text]
+</p><h3><a href="https://www.codenerve.com/beginner-java/lesson-9-reading-console-input/">Next: Reading Console Input</a></h3>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row][vc_column][us_post_navigation layout=”sided”][/vc_column][/vc_row]
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+        <h3>codenerve.com</h3>
+            <p>Thoughts, stories and ideas.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a></span>
+    </footer>
+</body>
+</html>
