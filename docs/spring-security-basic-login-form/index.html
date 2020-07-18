@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring Security - Basic Login Form</title>
+  <link rel="stylesheet" href="../assets/css/screen.css%3Fv=f3c91eb953.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
+
+  <script>
+  var themeOptions = {
+    white_logo: '',
+    disqus_shortname: 'codenerve-com',
+    instagram_token: '',
+    copyright: '© codenerve.com',
+    social_links: {
+      facebook: 'https://www.facebook.com/codenerve/',
+      twitter: 'https://twitter.com/codenerve',
+      instagram: 'https://www.instagram.com/codenerve/',
+      dribbble: '',
+      behance: '',
+      github: 'https://github.com/codenerve-com',
+      linkedin: '',
+      vk: '',
+      rss: '',
+    }
+  };
+</script>
+  <script>
+    if (localStorage.getItem('alto_dark') == 'true') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+  
+  <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="codenerve" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Spring Security - Basic Login Form" />
+    <meta property="og:description" content="Free Spring Security Tutorials" />
+    <meta property="og:url" content="https://codenerve.com/spring-security-basic-login-form/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta property="article:published_time" content="2019-04-25T22:20:29.000Z" />
+    <meta property="article:modified_time" content="2020-07-18T14:06:04.000Z" />
+    <meta property="article:tag" content="spring" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spring Security - Basic Login Form" />
+    <meta name="twitter:description" content="Free spring security tutorials" />
+    <meta name="twitter:url" content="https://codenerve.com/spring-security-basic-login-form/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="spring" />
+    <meta name="twitter:site" content="@codenerve" />
+    <meta name="twitter:creator" content="@mwhyte_" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "codenerve",
+        "url": "https://codenerve.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codenerve.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael W",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
+            "width": 512,
+            "height": 512
+        },
+        "url": "https://codenerve.com/author/mrwhyte/",
+        "sameAs": [
+            "https://twitter.com/mwhyte_"
+        ]
+    },
+    "headline": "Spring Security - Basic Login Form",
+    "url": "https://codenerve.com/spring-security-basic-login-form/",
+    "datePublished": "2019-04-25T22:20:29.000Z",
+    "dateModified": "2020-07-18T14:06:04.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
+        "width": 2000,
+        "height": 1333
+    },
+    "keywords": "spring",
+    "description": "In this series, I hope to show you some techniques for using spring security and\nthe broader spring ecosystem to build and develop secure application web\nservers.\n\nToday, we’ll be looking at building a basic login form page using:\n\n * Spring Boot\n * Spring Security, and\n * Thymeleaf\n\n\n--------------------------------------------------------------------------------\n\n&gt; Source code for this example can be found on github:\ncodenerve-com/spring-securityAn introduction to spring security. Contribute t",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codenerve.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.25" />
+    <link rel="alternate" type="application/rss+xml" title="codenerve" href="../rss/index.html" />
+</head>
+<body class="post-template tag-spring">
+  <div class="container">
+    <div class="site">
+      <header class="site-header">
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="burger hidden-lg hidden-xl"></div>
+      <a class="logo" href="../index.html">
+    <span class="logo-text">codenerve</span>
+</a>      <div class="sep hidden-xs hidden-sm hidden-sm"></div>
+        <nav class="main-menu hidden-xs hidden-sm hidden-md">
+          <ul class="nav-list u-plain-list">
+    <li class="menu-item menu-item-home"><a class="menu-item-link" href="../index.html">Home</a></li>
+    <li class="menu-item menu-item-spring"><a class="menu-item-link" href="../tag/spring/index.html">Spring</a></li>
+    <li class="menu-item menu-item-java"><a class="menu-item-link" href="https://codenerve.com/tag/java/">Java</a></li>
+</ul>
+        </nav>
+    </div>
+    <div class="navbar-right">
+      <div class="toggle-track">
+        <div class="toggle-moon"><i class="icon icon-brightness-2"></i></div>
+        <div class="toggle-sun"><i class="icon icon-white-balance-sunny"></i></div>
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+  </div>
+</header>      <div class="site-content">
+        
+<div class="content-area">
+  <main class="site-main kg-width-normal">
+      <article class="post tag-spring featured single-post">
+        <header class="post-header big-title">
+    <h1 class="post-title">Spring Security - Basic Login Form</h1>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2019-04-25">
+              Apr 25, 2019
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          4 min read
+        </span>
+          <span class="post-meta-item post-meta-tags">
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+          </span>
+      </div>
+</header>          <div class="post-media kg-width-wide">
+    <div class="u-placeholder horizontal">
+      <a class="post-image-link" href="index.html">
+        <img class="post-image lazyload u-object-fit"
+            data-srcset="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 400w, https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 750w, https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 960w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          alt="Spring Security - Basic Login Form"
+        >
+      </a>
+    </div>
+  </div>
+        <div class="post-content u-text-format">
+          <p>In this series, I hope to show you some techniques for using spring security and the broader spring ecosystem to build and develop secure application web servers.</p><p>Today, we’ll be looking at building a basic login form page using:</p><ul><li>Spring Boot</li><li>Spring Security, and</li><li>Thymeleaf</li></ul><hr><blockquote>Source code for this example can be found on github:</blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4"></div></a></figure><hr><p>First off lets briefly cover some of the project files that are of less interest:</p><ul><li><em><em>Application.java</em></em> — contains our main method and the <em><em>@SpringBootApplication </em></em>annotation.</li><li>A CSS stylesheet is located under src/main/resources/static/css/ to make the demo pretty</li><li>Some Thymeleaf HTML templates are located under src/main/resources/ for demo purposes also</li><li>An <em><em>application.properties</em></em> file is located under src/main/resources where we can pass configuration parameters to our spring boot application. A full list of options can be found <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html">here</a></li></ul><hr><h3 id="dependencies">Dependencies</h3><p>As with all Spring boot application’s, there are a number of ‘Starter’ libraries that make it easy to add jars to your classpath.<br>In addition, these can auto-configure various spring beans and behaviours that we </p><!--kg-card-begin: html--><script src="https://gist.github.com/MWhyte/1ea949cf86150a80fa3dfb8f5bcf22f8.js"></script><!--kg-card-end: html--><ul><li>spring-boot-starter-parent — brings in all the required spring dependencies and manages there versions</li><li>spring-boot-starter-thymeleaf — adds thymeleaf-spring5 and thymeleaf-extras-java8time dependencies (<a href="http://www.thymeleaf.org/" rel="noopener nofollow">more on thymeleaf</a>)</li><li>spring-boot-starter-security — adds spring-security-config, spring-security-web and spring-aop dependencies</li><li>spring-boot-starter-test — adds spring-boot-test, junit, <a href="http://hamcrest.org/" rel="noopener nofollow">hamcrest</a> and <a href="https://site.mockito.org/" rel="noopener nofollow">mockito</a></li><li>spring-security-test — adds the ability to mock user and user roles</li></ul><h3 id="mvcconfig">MvcConfig</h3><!--kg-card-begin: html--><script src="https://gist.github.com/MWhyte/e4e32de81af96c806d020ddec2fafdfa.js"></script><!--kg-card-end: html--><p>This class implements spring’s <em><em>WebMvcConfigurer </em></em>interface. This allows you to override the method <em><em>addViewControllers</em></em> (as well as others) which is a way to configure simple automated controllers. In this example, we have mapped them to our Thymeleaf views (under src/main/resources).</p><h3 id="websecurityconfig">WebSecurityConfig</h3><!--kg-card-begin: html--><script src="https://gist.github.com/MWhyte/421de0b17b116b59866fd4a7d455f183.js"></script><!--kg-card-end: html--><p>There’s a lot going on in this class as it contains the main security configuration to enable and configure our basic login form.</p><p><strong><strong>@EnableWebSecurity</strong></strong><br>A Marker which allows spring to find your custom web application security configuration</p><p><strong><strong>WebSecurityConfigurerAdapter</strong></strong><br>Another abstract base class that allows you to override certain aspects of spring security’s default configuration. In our case, we are going to override the methods <em><em>configure</em></em> and <em><em>configureGlobal</em></em>.</p><p><strong><strong>configure(HttpSecurity http) method</strong></strong><br>Note the parameter passed to this method. There are several different configure methods. We will be overriding and configuring <em><em>HttpSecurity </em></em>specifically<em><em>.</em></em></p><ul><li><em><em>authorizeRequests()</em></em> — Allows us to configure which resources on our web server to secure. You can see from our example code we have allowed un-secured access to our CSS directory and requested that all other resources are secured and can only be accessed by an authenticated user.</li><li><em><em>formLogin()</em></em> — Tells spring security that we wish to use a login form. We provide the login URL, the URL we want to redirect to if the authentication is successful and finally permit access to the login and logout endpoints.</li><li><em><em>csrf()</em></em> — For now we are disabling cross-site request forgery protection which by default is enabled. We will cover this later in the series.</li></ul><p><strong><strong>configureGlobal method</strong></strong><br>Allows us to autowire an <em><em>AuthenticationManager</em></em> which will be used globally throughout our application. For this example, we are using a basic in-memory approach with one user and one user role.</p><h3 id="thymeleaf-namespace">Thymeleaf namespace</h3><p>A few things to note in our <em><em>login.html</em></em><br>The thymeleaf spring security namespace:</p><p></p><!--kg-card-begin: markdown--><pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;    xmlns:th=&quot;http://www.thymeleaf.org&quot;    xmlns:sec=&quot;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&quot;&gt;
+</code></pre>
+<!--kg-card-end: markdown--><p>The thymeleaf action which instructs the form to do a POST request to the URL provided (/login):</p><!--kg-card-begin: markdown--><pre><code>&lt;form th:action=&quot;@{/login}&quot; method=&quot;post&quot; class=&quot;form login&quot;&gt;
+</code></pre>
+<!--kg-card-end: markdown--><p>The thymeleaf if condition can check for URL parameters, error and log out responses and display content if they return true:</p><!--kg-card-begin: markdown--><pre><code>&lt;div class=&quot;text--center&quot; th:if=&quot;${param.error}&quot;&gt;
+    Invalid username and password.
+&lt;/div&gt;
+&lt;div class=&quot;text--center&quot; th:if=&quot;${param.logout}&quot;&gt;
+     You have been logged out.
+&lt;/div&gt;
+</code></pre>
+<!--kg-card-end: markdown--><p>Full list of what's available on the thymeleaf <a href="http://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html#handling-the-command-object" rel="noopener nofollow">website</a></p><h3 id="demo">Demo</h3><p>To run the demo open the <em><em>Application.java</em></em> class and right click run. In order to start the example, port 8080 will need to be available on your machine. If it is not you can change this default in the application.properties file using:</p><!--kg-card-begin: markdown--><pre><code>server.port=8081
+</code></pre>
+<!--kg-card-end: markdown--><p>Set this to whatever value you wish.</p><figure class="kg-card kg-embed-card"><iframe width="612" height="344" src="https://www.youtube.com/embed/aQ6QTQdCfeQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure><hr><h3 id="unit-testing">Unit Testing</h3><!--kg-card-begin: html--><script src="https://gist.github.com/MWhyte/e224a5ec49fca7a52dab0b6726e92805.js"></script><!--kg-card-end: html--><p></p><p><strong><strong>@RunWith(SpringRunner.class)</strong></strong><br>Tells JUnit to run unit tests with Spring’s testing support</p><p><strong><strong>@SpringBootTest</strong></strong><br>Run as spring boot app. i.e. load application.properties and spring beans</p><p><strong><strong>@AutoConfigureMockMvc</strong></strong><br>Creates a Test helper class called MockMvc. From this, we can imitate a front-end client making requests to the server.</p><p><strong><strong>@WithMockUser</strong></strong><br>Provides the ability to mock certain users. An authenticated user in our case.</p><p><strong><strong>FormLoginRequestBuilder</strong></strong><br>A utility class that allows us to create a form based login request.</p><h1 id="next">Next</h1><p>Next up, we will be covering spring security’s user roles and the ability to hide and show content on our site based on the user’s permissions.</p>
+        </div>
+        <div class="share u-hover-wrapper">
+  <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-security-basic-login-form/" target="_blank"><i class="icon icon-facebook"></i></a>
+  <a class="share-item share-twitter u-hover-item" href="https://twitter.com/intent/tweet?url=https://codenerve.com/spring-security-basic-login-form/&text=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-twitter"></i></a>
+  <a class="share-item share-pinterest u-hover-item" href="https://pinterest.com/pin/create/button/?url=https://codenerve.com/spring-security-basic-login-form/&media=&description=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-pinterest"></i></a>
+  <a class="share-item share-linkedin u-hover-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codenerve.com/spring-security-basic-login-form/&title=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-linkedin"></i></a>
+  <a class="share-item share-reddit u-hover-item" href="https://reddit.com/submit?url=https://codenerve.com/spring-security-basic-login-form/&title=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-reddit"></i></a>
+  <a class="share-item share-tumblr u-hover-item" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://codenerve.com/spring-security-basic-login-form/&title=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-tumblr"></i></a>
+  <a class="share-item share-vk u-hover-item" href="http://vk.com/share.php?url=https://codenerve.com/spring-security-basic-login-form/&title=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-vk"></i></a>
+  <a class="share-item share-pocket u-hover-item" href="https://getpocket.com/edit?url=https://codenerve.com/spring-security-basic-login-form/" target="_blank"><i class="icon icon-pocket"></i></a>
+  <a class="share-item share-telegram u-hover-item" href="https://t.me/share/url?url=https://codenerve.com/spring-security-basic-login-form/&text=Spring%20Security%20-%20Basic%20Login%20Form" target="_blank"><i class="icon icon-telegram"></i></a>
+</div>          <section class="author">
+    <div class="author-image-placeholder u-placeholder">
+      <img class="author-image lazyload u-object-fit" data-src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Michael W">
+    </div>
+    <div class="author-wrapper">
+      <header class="author-header">
+        <div class="author-header-wrapper">
+          <h4 class="author-name">Michael W</h4>
+          <div class="author-social">
+              <a class="author-social-item author-twitter" href="https://twitter.com/@mwhyte_" target="_blank">Twitter</a>
+            <a class="author-social-item author-more" href="../author/mrwhyte/index.html">More posts</a>
+          </div>
+        </div>
+      </header>
+      <div class="author-bio"></div>
+    </div>
+  </section>
+      </article>
+      <div class="navigation">
+
+</div>        <div class="comment-container kg-width-full">
+  <div class="container">
+    <div class="comment kg-width-normal">
+      <div id="disqus_thread"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var disqus_config = function () {
+    this.page.url = 'https://codenerve.com/spring-security-basic-login-form/';
+    this.page.identifier = 'ghost-';
+  };
+
+  if (themeOptions.disqus_shortname != '') {
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + themeOptions.disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  </main>
+</div>
+      </div>
+            <div class="instagram-feed kg-width-full u-hover-wrapper"></div>
+      <footer class="site-footer kg-width-wide">
+  <div class="copyright"></div>
+  <a class="logo" href="../index.html">
+    <span class="logo-text">codenerve</span>
+</a>  <div class="footer-social"></div>
+</footer>    </div>
+  </div>
+
+  <div class="dimmer"></div>
+
+  <div class="off-canvas">
+    <div class="canvas-close"><i class="canvas-icon icon icon-window-close"></i></div>
+    <div class="mobile-menu"></div>
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <script src="../assets/js/main.min.js%3Fv=f3c91eb953"></script>
+
+  
+
+  
+</body>
+</html>
