@@ -17,8 +17,10 @@ grep -rli 'http://localhost:2368' docs/* | xargs -I@ sed -i '' 's|http://localho
 echo "---" >> docs/404.md
 echo "permalink: /404.html" >> docs/404.md
 echo "---" >> docs/404.md
-
 cp content/404.html docs/
+
+# setup google ads
+cp content/ads.txt docs/
 
 # add the CNAME to keep custom domain routing
 echo "codenerve.com" >> docs/CNAME
