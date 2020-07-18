@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 timestamp=`date "+%Y%m%d-%H%M%S"`
 
 echo "staging static content: $timestamp"
