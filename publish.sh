@@ -18,6 +18,7 @@ echo "---" >> docs/404.md
 echo "permalink: /404.html" >> docs/404.md
 echo "---" >> docs/404.md
 
+cp content/404.html docs/
 
 # add the CNAME to keep custom domain routing
 echo "codenerve.com" >> docs/CNAME
