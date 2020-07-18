@@ -317,7 +317,7 @@ body {
   background-color: #fff;
   color: #333;
   font-family: Muli, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
   transition: background-color 0.3s ease-in-out;
@@ -2096,9 +2096,9 @@ input.subscribe-email {
 }
 @media (min-width: 992px) {
   .kg-width-normal {
-    margin-left: calc(-750px / 2 + 100% / 2);
-    margin-right: calc(-750px / 2 + 100% / 2);
-    max-width: 750px;
+    margin-left: calc(-850px / 2 + 100% / 2);
+    margin-right: calc(-850px / 2 + 100% / 2);
+    max-width: 850px;
   }
 }
 @media (min-width: 1200px) {
@@ -2280,7 +2280,8 @@ input.subscribe-email {
   }
 }
 .dark-mode body {
-  background-color: #282c35;
+  /*background-color: #282c35;*/
+  background-color: #323336;
   color: #ccc;
 }
 .dark-mode a:not(.menu-item-link):not(.post-tag):not(.post-link),
