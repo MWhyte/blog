@@ -18,6 +18,10 @@ echo "---" >> docs/404.md
 echo "permalink: /404.html" >> docs/404.md
 echo "---" >> docs/404.md
 
+
+# add the CNAME to keep custom domain routing
+echo "codenerve.com" >> docs/CNAME
+
 # commit and tag the update
 git add docs
 git commit -m "updating static content: $timestamp"
