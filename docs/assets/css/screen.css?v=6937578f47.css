@@ -2353,4 +2353,5 @@ input.subscribe-email {
 pre code {
   word-wrap: normal;
   white-space: pre;
+  overflow-x: scroll;
 }
