@@ -50,6 +50,21 @@
 <script src="{{asset "js/main.min.js"}}"></script>
 <script src="{{asset "js/highlight.pack.js"}}"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
+<style>
+    pre {
+        word-wrap: normal;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        -webkit-hyphens: none;
+        hyphens: none;
+        font-size: 1em;
+        line-height: 1.3em;
+    }
+    pre code, pre tt {
+        white-space: pre;
+        overflow-x: scroll;
+    }
+</style>
 
 {{{block "scripts"}}}
 
