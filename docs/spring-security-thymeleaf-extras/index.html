@@ -46,7 +46,7 @@
     <meta property="og:url" content="https://codenerve.com/spring-security-thymeleaf-extras/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2019-04-30T22:18:14.000Z" />
-    <meta property="article:modified_time" content="2020-07-19T09:34:01.000Z" />
+    <meta property="article:modified_time" content="2020-07-19T11:56:48.000Z" />
     <meta property="article:tag" content="spring" />
     
     <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
@@ -96,7 +96,7 @@
     "headline": "Spring Security - User Roles and ThymeLeaf Extras",
     "url": "https://codenerve.com/spring-security-thymeleaf-extras/",
     "datePublished": "2019-04-30T22:18:14.000Z",
-    "dateModified": "2020-07-19T09:34:01.000Z",
+    "dateModified": "2020-07-19T11:56:48.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
@@ -181,43 +181,43 @@
     </div>
   </div>
         <div class="post-content u-text-format">
-          <p>In the last lesson, we learnt how to use spring security to build a <a href="https://www.codenerve.com/spring-security-basic-login-form/">basic login form</a>. </p><p>Today, we'll be looking at adding user roles and some nice feature's of the Thymeleaf library to show and hide content based on these roles.</p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security/tree/2.thymeleaf-extras"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4"></div></a></figure><hr><h3 id="dependencies">Dependencies</h3><p>As with all Spring boot application's, there are a number of starter libraries that make it easy to add jars to your classpath. In addition, these can auto-configure various spring beans and behaviours that we can make use of. Building upon the previous lesson we will be adding:</p><ul><li>thymeleaf-extras-springsecurity4 - this has a number of additional features over the basic thymeleaf jar</li></ul><p></p><h3 id="websecurityconfig">WebSecurityConfig</h3><p>To begin this lesson we'll be adding another user to our application's WebSecurityConfig but this time giving them a new role 'admin':</p><figure class="kg-card kg-code-card"><pre><code class="language-java">    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("{noop}pass").roles("USER")
-                .and()
-                .withUser("admin").password("{noop}pass").roles("ADMIN");
-    }</code></pre><figcaption>WebSecurityConfig.java</figcaption></figure><p>This now gives us two available user's to log in with. </p><p>Each is configured with a different role that we can now use to hide and show various content.</p><h3 id="thymeleaf-authorize">Thymeleaf: Authorize</h3><p>Next, we'll be using a Thymeleaf attribute <em>sec:authorize</em> to check a users roles before rendering the div's in our index.html page.</p><p>To do this, go to the index.html page and add the following HTML inside the body tags:</p><figure class="kg-card kg-code-card"><pre><code class="language-html">        &lt;div sec:authorize="hasRole('ADMIN')"&gt;
-            This content is only shown to administrators.
-        &lt;/div&gt;
+          <p>In the last lesson, we learnt how to use spring security to build a <a href="https://www.codenerve.com/spring-security-basic-login-form/">basic login form</a>. </p><p>Today, we'll be looking at adding user roles and some nice feature's of the Thymeleaf library to show and hide content based on these roles.</p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security/tree/2.thymeleaf-extras"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4"></div></a></figure><hr><h3 id="dependencies">Dependencies</h3><p>As with all Spring boot application's, there are a number of starter libraries that make it easy to add jars to your classpath. In addition, these can auto-configure various spring beans and behaviours that we can make use of. Building upon the previous lesson we will be adding:</p><ul><li>thymeleaf-extras-springsecurity4 - this has a number of additional features over the basic thymeleaf jar</li></ul><p></p><h3 id="websecurityconfig">WebSecurityConfig</h3><p>To begin this lesson we'll be adding another user to our application's WebSecurityConfig but this time giving them a new role 'admin':</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Autowired
+public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth
+        .inMemoryAuthentication()
+        .withUser("user").password("{noop}pass").roles("USER")
+        .and()
+        .withUser("admin").password("{noop}pass").roles("ADMIN");
+}</code></pre><figcaption>WebSecurityConfig.java</figcaption></figure><p>This now gives us two available user's to log in with. </p><p>Each is configured with a different role that we can now use to hide and show various content.</p><h3 id="thymeleaf-authorize">Thymeleaf: Authorize</h3><p>Next, we'll be using a Thymeleaf attribute <em>sec:authorize</em> to check a users roles before rendering the div's in our index.html page.</p><p>To do this, go to the index.html page and add the following HTML inside the body tags:</p><figure class="kg-card kg-code-card"><pre><code class="language-html">&lt;div sec:authorize="hasRole('ADMIN')"&gt;
+    This content is only shown to administrators.
+&lt;/div&gt;
 
-        &lt;div sec:authorize="hasRole('USER')"&gt;
-            This content is only shown to users.
-        &lt;/div&gt;</code></pre><figcaption>index.html</figcaption></figure><p>As you can see the <em>sec:authorize</em> attribute is added to each div, and we use something called the spring security dialect to check users spring security roles. Content will only be rendered if the logged-in user has that role. i.e. <em>hasRole</em> returns true.</p><p>It is important to note that content is not just hidden from view but will not be rendered at all when our application server returns the page to the browser.</p><h3 id="thymeleaf-authentication">Thymeleaf: Authentication</h3><p>Another useful Thymeleaf feature is the <em>sec:authentication</em> attribute. This can return various security-related metadata. In the example below, we can retrieve the user's username and roles and display these in our HTML.</p><figure class="kg-card kg-code-card"><pre><code class="language-html">&lt;div&gt;
+&lt;div sec:authorize="hasRole('USER')"&gt;
+    This content is only shown to users.
+&lt;/div&gt;</code></pre><figcaption>index.html</figcaption></figure><p>As you can see the <em>sec:authorize</em> attribute is added to each div, and we use something called the spring security dialect to check users spring security roles. Content will only be rendered if the logged-in user has that role. i.e. <em>hasRole</em> returns true.</p><p>It is important to note that content is not just hidden from view but will not be rendered at all when our application server returns the page to the browser.</p><h3 id="thymeleaf-authentication">Thymeleaf: Authentication</h3><p>Another useful Thymeleaf feature is the <em>sec:authentication</em> attribute. This can return various security-related metadata. In the example below, we can retrieve the user's username and roles and display these in our HTML.</p><figure class="kg-card kg-code-card"><pre><code class="language-html">&lt;div&gt;
     User: &lt;span sec:authentication="name"&gt;NOT FOUND&lt;/span&gt;
     Spring Roles: &lt;span sec:authentication="principal.authorities"&gt;NOT FOUND&lt;/span&gt;
-&lt;/div&gt;</code></pre><figcaption>index.html</figcaption></figure><p>For more useful attribute's see <a href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity">the Thymeleaf documentation</a></p><h3 id="demo">Demo</h3><p>To run the demo, open the Application class and right click run. In order to start the example, the port 8080 will need to be available on your machine. If it is not you can change this default in the application.properties file using:</p><pre><code class="language-bash">server.port=8081</code></pre><p>Set this to whatever value you wish.</p><figure class="kg-card kg-embed-card"><iframe width="612" height="344" src="https://www.youtube.com/embed/khAjDT9szTM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure><h3 id="unit-testing">Unit Testing</h3><p>We've added a few more unit tests to cover this new functionality:</p><figure class="kg-card kg-code-card"><pre><code class="language-java">	@Test
-	@WithMockUser(roles = "USER")
-	public void loginWithRoleUserThenExpectUserSpecificContent() throws Exception {
-		mockMvc.perform(get("/index"))
-				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("This content is only shown to users.")))
-				.andExpect(content().string(doesNotContainString("This content is only shown to administrators.")));
-	}
+&lt;/div&gt;</code></pre><figcaption>index.html</figcaption></figure><p>For more useful attribute's see <a href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity">the Thymeleaf documentation</a></p><h3 id="demo">Demo</h3><p>To run the demo, open the Application class and right click run. In order to start the example, the port 8080 will need to be available on your machine. If it is not you can change this default in the application.properties file using:</p><pre><code class="language-bash">server.port=8081</code></pre><p>Set this to whatever value you wish.</p><figure class="kg-card kg-embed-card"><iframe width="612" height="344" src="https://www.youtube.com/embed/khAjDT9szTM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure><h3 id="unit-testing">Unit Testing</h3><p>We've added a few more unit tests to cover this new functionality:</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Test
+@WithMockUser(roles = "USER")
+public void loginWithRoleUserThenExpectUserSpecificContent() throws Exception {
+	mockMvc.perform(get("/index"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("This content is only shown to users.")))
+			.andExpect(content().string(doesNotContainString("This content is only shown to administrators.")));
+}
 
-	@Test
-	@WithMockUser(roles = "ADMIN")
-	public void loginWithRoleAdminThenExpectAdminSpecificContent() throws Exception {
-		mockMvc.perform(get("/index"))
-				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("This content is only shown to administrators.")))
-				.andExpect(content().string(doesNotContainString("This content is only shown to users.")));
-	}
+@Test
+@WithMockUser(roles = "ADMIN")
+public void loginWithRoleAdminThenExpectAdminSpecificContent() throws Exception {
+	mockMvc.perform(get("/index"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("This content is only shown to administrators.")))
+			.andExpect(content().string(doesNotContainString("This content is only shown to users.")));
+}
 
-	private Matcher&lt;String&gt; doesNotContainString(String s) {
-		return CoreMatchers.not(containsString(s));
-	}</code></pre><figcaption>ApplicationTests.java</figcaption></figure><p>As you can see we've created a utility method <em>doesNotContainString</em>. Using this and Hamcrests <em>containsString</em> method, we can check that content is rendered (or not) based on a particular user role.</p><h3 id="next">Next</h3><p>Next up, we will be continuing to cover spring security's user roles, but this time we will be redirecting admins to there own admin page (admin.html) and securing this page so that only admin users can access it.</p><p></p>
+private Matcher&lt;String&gt; doesNotContainString(String s) {
+	return CoreMatchers.not(containsString(s));
+}</code></pre><figcaption>ApplicationTests.java</figcaption></figure><p>As you can see we've created a utility method <em>doesNotContainString</em>. Using this and Hamcrests <em>containsString</em> method, we can check that content is rendered (or not) based on a particular user role.</p><h3 id="next">Next</h3><p>Next up, we will be continuing to cover spring security's user roles, but this time we will be redirecting admins to there own admin page (admin.html) and securing this page so that only admin users can access it.</p><p></p>
         </div>
         <div class="share u-hover-wrapper">
   <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-security-thymeleaf-extras/" target="_blank"><i class="icon icon-facebook"></i></a>
