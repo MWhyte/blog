@@ -1253,13 +1253,11 @@ input.subscribe-email {
   padding: 45px 0;
 }
 .copyright,
-.footer-social,
-.version{
+.footer-social{
   -webkit-flex: 2;
   flex: 2;
 }
-.copyright,
-.version{
+.copyright{
   font-size: 14px;
 }
 .copyright a {
