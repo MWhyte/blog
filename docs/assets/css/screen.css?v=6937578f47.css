@@ -1260,11 +1260,11 @@ input.subscribe-email {
 .copyright {
   font-size: 14px;
 }
-.version {
-  font-size: 14px;
-}
 .copyright a {
   position: relative;
+}
+.version {
+  font-size: 14px;
 }
 .footer-social {
   margin-right: -7px;
