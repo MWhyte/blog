@@ -2345,3 +2345,12 @@ input.subscribe-email {
 .dark-mode blockquote {
   border-color: #fff;
 }
+.post-content pre code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
