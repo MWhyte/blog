@@ -1260,6 +1260,9 @@ input.subscribe-email {
 .copyright {
   font-size: 14px;
 }
+.version {
+  font-size: 14px;
+}
 .copyright a {
   position: relative;
 }
