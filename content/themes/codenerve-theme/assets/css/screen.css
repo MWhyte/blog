@@ -1253,11 +1253,11 @@ input.subscribe-email {
   padding: 45px 0;
 }
 .copyright,
-.footer-social {
+.footer-social{
   -webkit-flex: 2;
   flex: 2;
 }
-.copyright {
+.copyright{
   font-size: 14px;
 }
 .copyright a {
@@ -2353,4 +2353,5 @@ input.subscribe-email {
 pre code {
   word-wrap: normal;
   white-space: pre;
+  overflow-x: scroll;
 }
