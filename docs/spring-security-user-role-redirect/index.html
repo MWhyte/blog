@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring Security - Redirect based on User Roles</title>
+    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=d086e8d716.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
+
+    <script>
+  var themeOptions = {
+    white_logo: '',
+    disqus_shortname: 'codenerve-com',
+    instagram_token: '',
+    copyright: '© codenerve.com',
+    social_links: {
+      facebook: '',
+      twitter: 'https://twitter.com/codenerve',
+      instagram: '',
+      dribbble: '',
+      behance: '',
+      github: 'https://github.com/codenerve-com',
+      linkedin: '',
+      vk: '',
+      rss: '',
+    }
+  };
+</script>
+    <script>
+        if (localStorage.getItem('alto_dark') == 'true') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css" />
+
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="codenerve" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Spring Security - Redirect based on User Roles" />
+    <meta property="og:description" content="So far we’ve built a basic spring boot application, enabled spring security and built a basic login form. In the last lesson, we expanded on the first lesson by adding different user roles and the ability to show and hide front-end content based on these roles (User Roles and" />
+    <meta property="og:url" content="https://codenerve.com/spring-security-user-role-redirect/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta property="article:published_time" content="2019-05-03T21:23:35.000Z" />
+    <meta property="article:modified_time" content="2020-07-21T19:09:49.000Z" />
+    <meta property="article:tag" content="spring" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spring Security - Redirect based on User Roles" />
+    <meta name="twitter:description" content="So far we’ve built a basic spring boot application, enabled spring security and built a basic login form. In the last lesson, we expanded on the first lesson by adding different user roles and the ability to show and hide front-end content based on these roles (User Roles and" />
+    <meta name="twitter:url" content="https://codenerve.com/spring-security-user-role-redirect/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="spring" />
+    <meta name="twitter:site" content="@codenerve" />
+    <meta name="twitter:creator" content="@mwhyte_" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "codenerve",
+        "url": "https://codenerve.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codenerve.com/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael W",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
+            "width": 512,
+            "height": 512
+        },
+        "url": "https://codenerve.com/author/mrwhyte/",
+        "sameAs": [
+            "https://twitter.com/mwhyte_"
+        ]
+    },
+    "headline": "Spring Security - Redirect based on User Roles",
+    "url": "https://codenerve.com/spring-security-user-role-redirect/",
+    "datePublished": "2019-05-03T21:23:35.000Z",
+    "dateModified": "2020-07-21T19:09:49.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
+        "width": 2000,
+        "height": 1333
+    },
+    "keywords": "spring",
+    "description": "So far we’ve built a basic spring boot application, enabled spring security and\nbuilt a basic login form\n[https://www.codenerve.com/spring-security-basic-login-form/]. In the last\nlesson, we expanded on the first lesson by adding different user roles and the\nability to show and hide front-end content based on these roles (User Roles and\nThymeleaf Extras). [https://www.codenerve.com/spring-security-thymeleaf-extras/]\n\n\n\nToday, we’ll be looking at redirecting users with different roles to differen",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codenerve.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.25" />
+    <link rel="alternate" type="application/rss+xml" title="codenerve" href="../rss/index.html" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51518117-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-51518117-1');
+</script>
+</head>
+<body class="post-template tag-spring">
+<div class="container">
+    <div class="site">
+        <header class="site-header">
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="burger hidden-lg hidden-xl"></div>
+      <a class="logo" href="../index.html">
+    <span class="logo-text">codenerve</span>
+</a>      <div class="sep hidden-xs hidden-sm hidden-sm"></div>
+        <nav class="main-menu hidden-xs hidden-sm hidden-md">
+          <ul class="nav-list u-plain-list">
+    <li class="menu-item menu-item-spring"><a class="menu-item-link" href="../tag/spring/index.html">Spring</a></li>
+</ul>
+        </nav>
+    </div>
+    <div class="navbar-right">
+      <div class="toggle-track">
+        <div class="toggle-moon"><i class="icon icon-brightness-2"></i></div>
+        <div class="toggle-sun"><i class="icon icon-white-balance-sunny"></i></div>
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+  </div>
+</header>        <div class="site-content">
+            
+<div class="content-area">
+  <main class="site-main kg-width-normal">
+      <article class="post tag-spring single-post">
+        <header class="post-header big-title">
+    <h1 class="post-title">Spring Security - Redirect based on User Roles</h1>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2019-05-03">
+              May 03, 2019
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          4 min read
+        </span>
+          <span class="post-meta-item post-meta-tags">
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+          </span>
+      </div>
+</header>          <div class="post-media kg-width-wide">
+    <div class="u-placeholder horizontal">
+      <a class="post-image-link" href="index.html">
+        <img class="post-image lazyload u-object-fit"
+            data-srcset="https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 400w, https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 750w, https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 960w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          alt="Spring Security - Redirect based on User Roles"
+        >
+      </a>
+    </div>
+  </div>
+        <div class="post-content u-text-format">
+          <p>So far we’ve built a basic spring boot application, enabled spring security and built a <a href="https://www.codenerve.com/spring-security-basic-login-form/">basic login form</a>. In the last lesson, we expanded on the first lesson by adding different user roles and the ability to show and hide front-end content based on these roles <a href="https://www.codenerve.com/spring-security-thymeleaf-extras/" rel="noopener noreferrer">(User Roles and Thymeleaf Extras).</a></p><p></p><p>Today, we’ll be looking at redirecting users with different roles to different pages after they log in.</p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security/tree/3.redirect-based-on-role"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4"></div></a></figure><hr><p>Some files are already set up for you from the previous lesson: <a href="https://www.codenerve.com/spring-security-thymeleaf-extras/" rel="noopener noreferrer">Spring Security – User Roles and Thymeleaf Extras</a>. Please start here or check out the complete code from the link above.</p><h3 id="admin-html">Admin.html</h3><p>Following on from our previous example, we have now created a new HTML file called Admin.html. This is the page we will redirect admins to when they log in.</p><figure class="kg-card kg-code-card"><pre><code class="language-html">&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"&gt;
+
+&lt;head&gt;
+    &lt;title&gt;codenerve.com - Welcome!&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Admin&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 th:inline="text"&gt;Hello [[${#httpServletRequest.remoteUser}]]!&lt;/h1&gt;
+
+        &lt;div&gt;
+             Custom administrator page.
+        &lt;/div&gt;
+
+        &lt;br/&gt;
+        &lt;form th:action="@{/logout}" method="post"&gt;
+            &lt;input type="submit" value="Sign Out"/&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><figcaption><a href="https://github.com/codenerve-com/spring-security/blob/3.redirect-based-on-role/src/main/resources/templates/admin.html">admin.html</a></figcaption></figure><p></p><h3 id="mvcconfig">MvcConfig</h3><p>Now, to serve the new <em>admin.html</em> page, we must add this page to our <em>MvcConfig</em>.</p><p>As with the previous examples, this is done by creating a class, extending <em>WebMvcConfigurerAdapter</em> and overriding the <em>addViewControllers</em> method. This time adding all the earlier pages of our app and the new admin page:</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Configuration
+public class MvcConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/admin").setViewName("admin");
+        registry.addViewController("/login").setViewName("login");
+    }
+}</code></pre><figcaption><a href="https://github.com/codenerve-com/spring-security/blob/3.redirect-based-on-role/src/main/java/com/codenerve/spring/sec/config/MvcConfig.java">MvcConfig.java</a></figcaption></figure><p></p><h3 id="websecurityconfig">WebSecurityConfig</h3><p><strong>The Constructor</strong></p><p>In order to decide what to do when different user roles login. We have created a new field of type <em>AuthenticationSuccessHandler</em>. We’re setting this new configuration bean via constructor injection.</p><p><strong>configure method</strong></p><p>This method is in charge of overriding and configuring <em>HttpSecurity</em> explicitly. From the last example, we have added two lines.</p><p>First, we’ve added a new antMatcher under the <em>authorizeRequests</em> section, and we’ve told spring security only to allow a user with the ‘ADMIN’ role access to all endpoints starting with ‘/admin’:</p><pre><code class="language-java">.antMatchers("/admin").hasRole("ADMIN")</code></pre><p>Secondly, we’ve added our <em>CustomAuthenticationSuccessHandler</em> under the formLogin section to tell spring security to ask this <em>CustomAuthenticationSuccessHandler</em> what to do when a successful login occurs:</p><pre><code class="language-java">.successHandler(authenticationSuccessHandler)</code></pre><p><strong>configureGlobal method</strong></p><p>The <em>configureGlobal</em> method is our in-memory registry of users. We’ve added two users. One with the primary ‘USER’ role and the other with the ‘ADMIN’ role.</p><p><strong>Full example:</strong></p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    public WebSecurityConfig(AuthenticationSuccessHandler authenticationSuccessHandler) {
+        this.authenticationSuccessHandler = authenticationSuccessHandler;
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers( "/css/**").permitAll()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .successHandler(authenticationSuccessHandler)
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
+                .and().csrf().disable(); // we'll enable this in a later blog post
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password("pass").roles("USER")
+                .and()
+                .withUser("admin").password("pass").roles("ADMIN");
+    }
+}</code></pre><figcaption><a href="https://github.com/codenerve-com/spring-security/blob/3.redirect-based-on-role/src/main/java/com/codenerve/spring/sec/config/WebSecurityConfig.java">WebSecurityConfig.java</a></figcaption></figure><p></p><h3 id="customauthenticationsuccesshandler">CustomAuthenticationSuccessHandler</h3><p>As you can see from our sample code below this class implements springs <em>AuthenticationSuccessHandler</em> class and overrides the <em>onAuthenticationSuccess</em> method.</p><p>Once a user is successfully logged in, this method is called and within this method, the user’s role is checked. If the user’s role is admin we redirect to the ‘/admin’ HTTP endpoint otherwise we redirect them to the ‘/index’ endpoint.</p><p>At this point, our <em>MvcConfig</em> takes over and serves the correct HTML page based on the viewController we created previously.</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Configuration
+public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+
+
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+
+        Set&lt;String&gt; roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+
+        if (roles.contains("ROLE_ADMIN")) {
+            httpServletResponse.sendRedirect("/admin");
+        } else {
+            httpServletResponse.sendRedirect("/index");
+        }
+    }
+}</code></pre><figcaption><a href="https://github.com/codenerve-com/spring-security/blob/3.redirect-based-on-role/src/main/java/com/codenerve/spring/sec/config/CustomAuthenticationSuccessHandler.java">CustomAuthenticationSuccessHandler.java</a></figcaption></figure><p></p><h3 id="demo">Demo</h3><p>To run the demo, open the <em>Application</em> class and right-click run. To start the example, port 8080 will need to be available on your machine. If it is not, you can change this default in the application.properties file using:</p><pre><code class="language-bash">server.port=8081</code></pre><p>Set this to whatever value you wish.</p><figure class="kg-card kg-embed-card"><iframe width="459" height="344" src="https://www.youtube.com/embed/jTku174kytg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure><p></p><h3 id="testing">Testing</h3><p>As always we have amended an added some additonal tests to conver a new functionality</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Test
+@WithMockUser(roles = "USER")
+public void loginWithRoleUserThenExpectAdminPageForbidden() throws Exception {
+	mockMvc.perform(get("/admin"))
+			.andExpect(status().isForbidden());
+}
+
+@Test
+@WithMockUser(roles = "ADMIN")
+public void loginWithRoleAdminThenExpectAdminContent() throws Exception {
+	mockMvc.perform(get("/admin"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("Custom administrator page.")));
+}
+
+@Test
+public void loginWithRoleUserThenExpectIndexPageRedirect() throws Exception {
+	FormLoginRequestBuilder login = formLogin()
+			.user("user")
+			.password("pass");
+
+	mockMvc.perform(login)
+			.andExpect(authenticated().withUsername("user"))
+			.andExpect(redirectedUrl("/index"));
+}
+
+@Test
+public void loginWithRoleAdminThenExpectAdminPageRedirect() throws Exception {
+	FormLoginRequestBuilder login = formLogin()
+			.user("admin")
+			.password("pass");
+
+	mockMvc.perform(login)
+			.andExpect(authenticated().withUsername("admin"))
+			.andExpect(redirectedUrl("/admin"));
+}</code></pre><figcaption><a href="https://github.com/codenerve-com/spring-security/blob/3.redirect-based-on-role/src/test/java/com/codenerve/spring/sec/ApplicationTests.java">ApplicationTests.java</a></figcaption></figure><p></p><h3 id="next">Next</h3><p>Next up, we will be covering spring security’s Cross Site Request Forgery (CSRF) protection.</p>
+        </div>
+        <div class="share u-hover-wrapper">
+  <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-security-user-role-redirect/" target="_blank"><i class="icon icon-facebook"></i></a>
+  <a class="share-item share-twitter u-hover-item" href="https://twitter.com/intent/tweet?url=https://codenerve.com/spring-security-user-role-redirect/&text=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-twitter"></i></a>
+  <a class="share-item share-pinterest u-hover-item" href="https://pinterest.com/pin/create/button/?url=https://codenerve.com/spring-security-user-role-redirect/&media=&description=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-pinterest"></i></a>
+  <a class="share-item share-linkedin u-hover-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codenerve.com/spring-security-user-role-redirect/&title=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-linkedin"></i></a>
+  <a class="share-item share-reddit u-hover-item" href="https://reddit.com/submit?url=https://codenerve.com/spring-security-user-role-redirect/&title=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-reddit"></i></a>
+  <a class="share-item share-tumblr u-hover-item" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://codenerve.com/spring-security-user-role-redirect/&title=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-tumblr"></i></a>
+  <a class="share-item share-vk u-hover-item" href="http://vk.com/share.php?url=https://codenerve.com/spring-security-user-role-redirect/&title=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-vk"></i></a>
+  <a class="share-item share-pocket u-hover-item" href="https://getpocket.com/edit?url=https://codenerve.com/spring-security-user-role-redirect/" target="_blank"><i class="icon icon-pocket"></i></a>
+  <a class="share-item share-telegram u-hover-item" href="https://t.me/share/url?url=https://codenerve.com/spring-security-user-role-redirect/&text=Spring%20Security%20-%20Redirect%20based%20on%20User%20Roles" target="_blank"><i class="icon icon-telegram"></i></a>
+</div>          <section class="author">
+    <div class="author-image-placeholder u-placeholder">
+      <img class="author-image lazyload u-object-fit" data-src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Michael W">
+    </div>
+    <div class="author-wrapper">
+      <header class="author-header">
+        <div class="author-header-wrapper">
+          <h4 class="author-name">Michael W</h4>
+          <div class="author-social">
+              <a class="author-social-item author-twitter" href="https://twitter.com/@mwhyte_" target="_blank">Twitter</a>
+            <a class="author-social-item author-more" href="../author/mrwhyte/index.html">More posts</a>
+          </div>
+        </div>
+      </header>
+      <div class="author-bio"></div>
+    </div>
+  </section>
+      </article>
+      <div class="navigation">
+    <div class="navigation-item navigation-previous">
+      <a class="navigation-item-link button-arrow button-arrow-left" href="../spring-security-thymeleaf-extras/index.html"><i class="button-arrow-icon icon icon-arrow-left"></i> Previous Post</a>
+    </div>
+
+</div>        <section class="related-posts">
+      <h3 class="related-title"><span class="text">You might also like...</span></h3>
+      <div class="row">
+          <div class="related-column col-md-4">
+            <article class="post tag-spring featured">
+                <div class="post-media">
+    <div class="u-placeholder rectangle">
+      <a class="post-image-link" href="../spring-security-thymeleaf-extras/index.html">
+        <img class="post-image lazyload u-object-fit"
+            data-srcset="https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 400w, https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 750w, https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 960w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          alt="Spring Security - User Roles and ThymeLeaf Extras"
+        >
+      </a>
+    </div>
+  </div>
+              <header class="post-header">
+    <h2 class="post-title">
+      <a class="post-title-link" href="../spring-security-thymeleaf-extras/index.html">Spring Security - User Roles and ThymeLeaf Extras</a>
+    </h2>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2019-04-30">
+              Apr 30, 2019
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          3 min read
+        </span>
+          <span class="post-meta-item post-meta-tags">
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+          </span>
+      </div>
+</header>            </article>
+          </div>
+          <div class="related-column col-md-4">
+            <article class="post tag-spring featured">
+                <div class="post-media">
+    <div class="u-placeholder rectangle">
+      <a class="post-image-link" href="../spring-security-basic-login-form/index.html">
+        <img class="post-image lazyload u-object-fit"
+            data-srcset="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 400w, https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 750w, https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 960w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          alt="Spring Security - Basic Login Form"
+        >
+      </a>
+    </div>
+  </div>
+              <header class="post-header">
+    <h2 class="post-title">
+      <a class="post-title-link" href="../spring-security-basic-login-form/index.html">Spring Security - Basic Login Form</a>
+    </h2>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2019-04-25">
+              Apr 25, 2019
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          6 min read
+        </span>
+          <span class="post-meta-item post-meta-tags">
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+          </span>
+      </div>
+</header>            </article>
+          </div>
+      </div>
+    </section>
+    <div class="comment-container kg-width-full">
+  <div class="container">
+    <div class="comment kg-width-normal">
+      <div id="disqus_thread"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var disqus_config = function () {
+    this.page.url = 'https://codenerve.com/spring-security-user-role-redirect/';
+    this.page.identifier = 'ghost-';
+  };
+
+  if (themeOptions.disqus_shortname != '') {
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + themeOptions.disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  </main>
+</div>
+        </div>
+                <div class="instagram-feed kg-width-full u-hover-wrapper"></div>
+        <footer class="site-footer kg-width-wide">
+  <div class="copyright"></div>
+  <a class="logo" href="../index.html">
+    <span class="logo-text">codenerve</span>
+</a>  <div class="footer-social"></div>
+</footer>    </div>
+</div>
+
+<div class="dimmer"></div>
+
+<div class="off-canvas">
+    <div class="canvas-close"><i class="canvas-icon icon icon-window-close"></i></div>
+    <div class="mobile-menu"></div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+<script src="../assets/js/main.min.js%3Fv=d086e8d716"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-kotlin.min.js"></script>
+
+
+
+
+</body>
+</html>

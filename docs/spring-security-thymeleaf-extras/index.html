@@ -46,7 +46,7 @@
     <meta property="og:url" content="https://codenerve.com/spring-security-thymeleaf-extras/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2019-04-30T22:18:14.000Z" />
-    <meta property="article:modified_time" content="2020-07-19T11:56:48.000Z" />
+    <meta property="article:modified_time" content="2020-07-21T19:27:24.000Z" />
     <meta property="article:tag" content="spring" />
     
     <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
@@ -96,7 +96,7 @@
     "headline": "Spring Security - User Roles and ThymeLeaf Extras",
     "url": "https://codenerve.com/spring-security-thymeleaf-extras/",
     "datePublished": "2019-04-30T22:18:14.000Z",
-    "dateModified": "2020-07-19T11:56:48.000Z",
+    "dateModified": "2020-07-21T19:27:24.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1517650862521-d580d5348145?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
@@ -217,7 +217,7 @@ public void loginWithRoleAdminThenExpectAdminSpecificContent() throws Exception 
 
 private Matcher&lt;String&gt; doesNotContainString(String s) {
 	return CoreMatchers.not(containsString(s));
-}</code></pre><figcaption>ApplicationTests.java</figcaption></figure><p>As you can see we've created a utility method <em>doesNotContainString</em>. Using this and Hamcrests <em>containsString</em> method, we can check that content is rendered (or not) based on a particular user role.</p><h3 id="next">Next</h3><p>Next up, we will be continuing to cover spring security's user roles, but this time we will be redirecting admins to there own admin page (admin.html) and securing this page so that only admin users can access it.</p><p></p>
+}</code></pre><figcaption>ApplicationTests.java</figcaption></figure><p>As you can see we've created a utility method <em>doesNotContainString</em>. Using this and Hamcrests <em>containsString</em> method, we can check that content is rendered (or not) based on a particular user role.</p><h3 id="next"><a href="../spring-security-user-role-redirect/index.html">Next</a></h3><p>Next up, we will be continuing to cover spring security's user roles, but this time we will be redirecting admins to there own admin page (admin.html) and securing this page so that only admin users can access it.</p><p></p>
         </div>
         <div class="share u-hover-wrapper">
   <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-security-thymeleaf-extras/" target="_blank"><i class="icon icon-facebook"></i></a>
@@ -252,9 +252,45 @@ private Matcher&lt;String&gt; doesNotContainString(String s) {
       <a class="navigation-item-link button-arrow button-arrow-left" href="../spring-security-basic-login-form/index.html"><i class="button-arrow-icon icon icon-arrow-left"></i> Previous Post</a>
     </div>
 
+    <div class="navigation-item navigation-next">
+      <a class="navigation-item-link button-arrow button-arrow-right" href="../spring-security-user-role-redirect/index.html">Next Post <i class="button-arrow-icon icon icon-arrow-right"></i></a>
+    </div>
 </div>        <section class="related-posts">
       <h3 class="related-title"><span class="text">You might also like...</span></h3>
       <div class="row">
+          <div class="related-column col-md-4">
+            <article class="post tag-spring">
+                <div class="post-media">
+    <div class="u-placeholder rectangle">
+      <a class="post-image-link" href="../spring-security-user-role-redirect/index.html">
+        <img class="post-image lazyload u-object-fit"
+            data-srcset="https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 400w, https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 750w, https://images.unsplash.com/photo-1483213097419-365e22f0f258?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ 960w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-sizes="auto"
+          alt="Spring Security - Redirect based on User Roles"
+        >
+      </a>
+    </div>
+  </div>
+              <header class="post-header">
+    <h2 class="post-title">
+      <a class="post-title-link" href="../spring-security-user-role-redirect/index.html">Spring Security - Redirect based on User Roles</a>
+    </h2>
+      <div class="post-meta">
+        <span class="post-meta-item post-meta-date">
+          <time datetime="2019-05-03">
+              May 03, 2019
+          </time>
+        </span>
+        <span class="post-meta-item post-meta-length">
+          4 min read
+        </span>
+          <span class="post-meta-item post-meta-tags">
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+          </span>
+      </div>
+</header>            </article>
+          </div>
           <div class="related-column col-md-4">
             <article class="post tag-spring featured">
                 <div class="post-media">
