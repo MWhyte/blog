@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spring Security - Redirect based on User Roles</title>
-    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=d086e8d716.css">
+    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=ebaa92bc1d.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
 
     <script>
@@ -48,6 +48,7 @@
     <meta property="article:published_time" content="2019-05-03T21:23:35.000Z" />
     <meta property="article:modified_time" content="2020-07-21T19:39:20.000Z" />
     <meta property="article:tag" content="spring" />
+    <meta property="article:tag" content="java" />
     
     <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -58,7 +59,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Michael W" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="spring" />
+    <meta name="twitter:data2" content="spring, java" />
     <meta name="twitter:site" content="@codenerve" />
     <meta name="twitter:creator" content="@mwhyte_" />
     <meta property="og:image:width" content="2000" />
@@ -103,7 +104,7 @@
         "width": 2000,
         "height": 2996
     },
-    "keywords": "spring",
+    "keywords": "spring, java",
     "description": "So far we’ve built a basic spring boot application, enabled spring security and\nbuilt a basic login form\n[https://www.codenerve.com/spring-security-basic-login-form/]. In the last\nlesson, we expanded on the first lesson by adding different user roles and the\nability to show and hide front-end content based on these roles (User Roles and\nThymeleaf Extras). [https://www.codenerve.com/spring-security-thymeleaf-extras/]\n\n\n\nToday, we’ll be looking at redirecting users with different roles to differen",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -124,7 +125,7 @@
   gtag('config', 'UA-51518117-1');
 </script>
 </head>
-<body class="post-template tag-spring">
+<body class="post-template tag-spring tag-java">
 <div class="container">
     <div class="site">
         <header class="site-header">
@@ -137,6 +138,8 @@
         <nav class="main-menu hidden-xs hidden-sm hidden-md">
           <ul class="nav-list u-plain-list">
     <li class="menu-item menu-item-spring"><a class="menu-item-link" href="../tag/spring/index.html">Spring</a></li>
+    <li class="menu-item menu-item-kotlin"><a class="menu-item-link" href="../tag/kotlin/index.html">Kotlin</a></li>
+    <li class="menu-item menu-item-java"><a class="menu-item-link" href="../tag/java/index.html">Java</a></li>
 </ul>
         </nav>
     </div>
@@ -152,7 +155,7 @@
             
 <div class="content-area">
   <main class="site-main kg-width-normal">
-      <article class="post tag-spring featured single-post">
+      <article class="post tag-spring tag-java featured single-post">
         <header class="post-header big-title">
     <h1 class="post-title">Spring Security - Redirect based on User Roles</h1>
       <div class="post-meta">
@@ -165,7 +168,7 @@
           4 min read
         </span>
           <span class="post-meta-item post-meta-tags">
-            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a><a class="post-tag post-tag-java" href="../tag/java/index.html" title="java">java</a>
           </span>
       </div>
 </header>          <div class="post-media kg-width-wide">
@@ -335,11 +338,14 @@ public void loginWithRoleAdminThenExpectAdminPageRedirect() throws Exception {
       <a class="navigation-item-link button-arrow button-arrow-left" href="../spring-security-thymeleaf-extras/index.html"><i class="button-arrow-icon icon icon-arrow-left"></i> Previous Post</a>
     </div>
 
+    <div class="navigation-item navigation-next">
+      <a class="navigation-item-link button-arrow button-arrow-right" href="../spring-cloud-zipkin/index.html">Next Post <i class="button-arrow-icon icon icon-arrow-right"></i></a>
+    </div>
 </div>        <section class="related-posts">
       <h3 class="related-title"><span class="text">You might also like...</span></h3>
       <div class="row">
           <div class="related-column col-md-4">
-            <article class="post tag-spring featured">
+            <article class="post tag-spring tag-java featured">
                 <div class="post-media">
     <div class="u-placeholder rectangle">
       <a class="post-image-link" href="../spring-security-thymeleaf-extras/index.html">
@@ -366,13 +372,13 @@ public void loginWithRoleAdminThenExpectAdminPageRedirect() throws Exception {
           3 min read
         </span>
           <span class="post-meta-item post-meta-tags">
-            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a><a class="post-tag post-tag-java" href="../tag/java/index.html" title="java">java</a>
           </span>
       </div>
 </header>            </article>
           </div>
           <div class="related-column col-md-4">
-            <article class="post tag-spring featured">
+            <article class="post tag-spring tag-java featured">
                 <div class="post-media">
     <div class="u-placeholder rectangle">
       <a class="post-image-link" href="../spring-security-basic-login-form/index.html">
@@ -399,7 +405,7 @@ public void loginWithRoleAdminThenExpectAdminPageRedirect() throws Exception {
           6 min read
         </span>
           <span class="post-meta-item post-meta-tags">
-            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a>
+            <a class="post-tag post-tag-spring" href="../tag/spring/index.html" title="spring">spring</a><a class="post-tag post-tag-java" href="../tag/java/index.html" title="java">java</a>
           </span>
       </div>
 </header>            </article>
@@ -453,7 +459,7 @@ public void loginWithRoleAdminThenExpectAdminPageRedirect() throws Exception {
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
 </script>
-<script src="../assets/js/main.min.js%3Fv=d086e8d716"></script>
+<script src="../assets/js/main.min.js%3Fv=ebaa92bc1d"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-java.min.js"></script>
