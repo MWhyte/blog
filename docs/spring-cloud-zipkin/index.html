@@ -46,7 +46,7 @@
     <meta property="og:url" content="https://codenerve.com/spring-cloud-zipkin/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2020-07-17T20:01:49.000Z" />
-    <meta property="article:modified_time" content="2020-07-23T20:31:48.000Z" />
+    <meta property="article:modified_time" content="2020-07-25T18:20:59.000Z" />
     <meta property="article:tag" content="spring-cloud" />
     <meta property="article:tag" content="kotlin" />
     <meta property="article:tag" content="spring" />
@@ -58,7 +58,7 @@
     <meta name="twitter:url" content="https://codenerve.com/spring-cloud-zipkin/" />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Michael W" />
+    <meta name="twitter:data1" content="Michael Whyte" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="spring-cloud, kotlin, spring" />
     <meta name="twitter:site" content="@codenerve" />
@@ -83,14 +83,14 @@
     },
     "author": {
         "@type": "Person",
-        "name": "Michael W",
+        "name": "Michael Whyte",
         "image": {
             "@type": "ImageObject",
-            "url": "https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s=512&r=g",
-            "width": 512,
-            "height": 512
+            "url": "https://codenerve.com/content/images/2020/07/Photo-30-08-2015--16-16-43--1-.jpg",
+            "width": 1520,
+            "height": 2688
         },
-        "url": "https://codenerve.com/author/mrwhyte/",
+        "url": "https://codenerve.com/author/michael/",
         "sameAs": [
             "https://twitter.com/mwhyte_"
         ]
@@ -98,7 +98,7 @@
     "headline": "Tracing REST Services with Zipkin",
     "url": "https://codenerve.com/spring-cloud-zipkin/",
     "datePublished": "2020-07-17T20:01:49.000Z",
-    "dateModified": "2020-07-23T20:31:48.000Z",
+    "dateModified": "2020-07-25T18:20:59.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
@@ -234,7 +234,7 @@ services:
     <td>Mock Payroll Service</td>
     <td><a href="http://localhost:8083/payrollService">http://localhost:8083/payrollService</a></td>
   </tr>
-</table><!--kg-card-end: html--><p>Now navigate to the Zipkin UI. Click on <em>Find Traces</em> and you will see the trace you created by opening the service url. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-1-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-1-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-1-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-1-1.png 1600w, ../content/images/2020/07/zipkin-ui-1-1.png 1656w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><hr><p>Click on a span to expand it:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-2-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-2-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-2-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-2-1.png 1600w, ../content/images/size/w2400/2020/07/zipkin-ui-2-1.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><h3 id="apache-benchmark">Apache Benchmark</h3><p>Additionally you could use a tool like <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">apache benchmark</a> to put the service under some load. This will create more traces that can be viewed in the zipkin ui:</p><pre><code class="language-html">ab -n 500 -c 20 "http://localhost:8080/tax?name=michael"</code></pre><p></p><h3 id="conclusion">Conclusion </h3><p>We've seen just how easy it is to add tracing to your spring cloud application. </p><p>For more info see the <a href="https://docs.spring.io/spring-cloud-sleuth/docs/current-SNAPSHOT/reference/html/">spring cloud docs</a> or the <a href="https://github.com/openzipkin/sleuth-webmvc-example">openzipkin examples</a> on github. </p><p></p>
+</table><!--kg-card-end: html--><p></p><p>Now navigate to the Zipkin UI. Click on <em>Find Traces</em> and you will see the trace you created by opening the service url. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-1-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-1-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-1-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-1-1.png 1600w, ../content/images/2020/07/zipkin-ui-1-1.png 1656w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><hr><p>Click on a span to expand it:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-2-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-2-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-2-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-2-1.png 1600w, ../content/images/size/w2400/2020/07/zipkin-ui-2-1.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><h3 id="apache-benchmark">Apache Benchmark</h3><p>Additionally you could use a tool like <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">apache benchmark</a> to put the service under some load. This will create more traces that can be viewed in the zipkin ui:</p><pre><code class="language-html">ab -n 500 -c 20 "http://localhost:8080/tax?name=michael"</code></pre><p></p><h3 id="conclusion">Conclusion </h3><p>We've seen just how easy it is to add tracing to your spring cloud application. </p><p>For more info see the <a href="https://docs.spring.io/spring-cloud-sleuth/docs/current-SNAPSHOT/reference/html/">spring cloud docs</a> or the <a href="https://github.com/openzipkin/sleuth-webmvc-example">openzipkin examples</a> on github. </p><p></p>
         </div>
         <div class="share u-hover-wrapper">
   <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-cloud-zipkin/" target="_blank"><i class="icon icon-facebook"></i></a>
@@ -248,15 +248,15 @@ services:
   <a class="share-item share-telegram u-hover-item" href="https://t.me/share/url?url=https://codenerve.com/spring-cloud-zipkin/&text=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-telegram"></i></a>
 </div>          <section class="author">
     <div class="author-image-placeholder u-placeholder">
-      <img class="author-image lazyload u-object-fit" data-src="https://secure.gravatar.com/avatar/38fe2075db7c0586b2e0806c1d55d740?s&#x3D;512&amp;r&#x3D;g" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Michael W">
+      <img class="author-image lazyload u-object-fit" data-src="/content/images/size/w150/2020/07/Photo-30-08-2015--16-16-43--1-.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Michael Whyte">
     </div>
     <div class="author-wrapper">
       <header class="author-header">
         <div class="author-header-wrapper">
-          <h4 class="author-name">Michael W</h4>
+          <h4 class="author-name">Michael Whyte</h4>
           <div class="author-social">
               <a class="author-social-item author-twitter" href="https://twitter.com/@mwhyte_" target="_blank">Twitter</a>
-            <a class="author-social-item author-more" href="../author/mrwhyte/index.html">More posts</a>
+            <a class="author-social-item author-more" href="../author/michael/index.html">More posts</a>
           </div>
         </div>
       </header>
