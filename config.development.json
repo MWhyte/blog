@@ -7,7 +7,7 @@
   "database": {
     "client": "sqlite3",
     "connection": {
-      "filename": "/Users/mrwhyte/Dropbox/Development/Code/Web/codenerve/content/data/ghost-local.db"
+      "filename": "/Users/mrwhyte/Dropbox/Development/Codenerve/codenerve-site/content/data/ghost-local.db"
     }
   },
   "mail": {
@@ -21,6 +21,6 @@
   },
   "process": "local",
   "paths": {
-    "contentPath": "/Users/mrwhyte/Dropbox/Development/Code/Web/codenerve/content"
+    "contentPath": "/Users/mrwhyte/Dropbox/Development/Codenerve/codenerve-site/content"
   }
 }
