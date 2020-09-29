@@ -2281,7 +2281,7 @@ input.subscribe-email {
 }
 .dark-mode body {
   /*background-color: #282c35;*/
-  background-color: #323336;
+  background-color: #151e29;
   color: #ccc;
 }
 .dark-mode a:not(.menu-item-link):not(.post-tag):not(.post-link),
