@@ -4,38 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>Tracing REST Services with Zipkin</title>
+    <title>Creating Google Cloud Functions with Kotlin</title>
 
+    <meta name="description" content="Learn how to build, test and deploy a google cloud function written in the Kotlin programming language" />
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="codenerve" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Tracing REST Services with Zipkin" />
-    <meta property="og:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta property="og:url" content="https://codenerve.com/spring-cloud-zipkin/" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
-    <meta property="article:published_time" content="2020-07-17T20:01:49.000Z" />
-    <meta property="article:modified_time" content="2020-09-29T22:50:58.000Z" />
-    <meta property="article:tag" content="Spring Cloud" />
+    <meta property="og:title" content="Creating Google Cloud Functions with Kotlin" />
+    <meta property="og:description" content="Learn how to build, test and deploy a google cloud function written in the Kotlin programming language" />
+    <meta property="og:url" content="https://codenerve.com/creating-google-cloud-functions-in-kotlin/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta property="article:published_time" content="2020-10-05T21:41:19.000Z" />
+    <meta property="article:modified_time" content="2020-10-06T21:08:34.000Z" />
     <meta property="article:tag" content="Kotlin" />
-    <meta property="article:tag" content="Spring" />
+    <meta property="article:tag" content="GCP" />
     
     <meta property="article:publisher" content="https://www.facebook.com/codenerve/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tracing REST Services with Zipkin" />
-    <meta name="twitter:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta name="twitter:url" content="https://codenerve.com/spring-cloud-zipkin/" />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
+    <meta name="twitter:title" content="Creating Google Cloud Functions with Kotlin" />
+    <meta name="twitter:description" content="Learn how to build, test and deploy a google cloud function written in the Kotlin programming language" />
+    <meta name="twitter:url" content="https://codenerve.com/creating-google-cloud-functions-in-kotlin/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Michael Whyte" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Spring Cloud, Kotlin, Spring" />
+    <meta name="twitter:data2" content="Kotlin, GCP" />
     <meta name="twitter:site" content="@codenerve" />
     <meta name="twitter:creator" content="@mwhyte_" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1333" />
+    <meta property="og:image:height" content="3000" />
     
     <script type="application/ld+json">
 {
@@ -66,18 +66,18 @@
             "https://twitter.com/mwhyte_"
         ]
     },
-    "headline": "Tracing REST Services with Zipkin",
-    "url": "https://codenerve.com/spring-cloud-zipkin/",
-    "datePublished": "2020-07-17T20:01:49.000Z",
-    "dateModified": "2020-09-29T22:50:58.000Z",
+    "headline": "Creating Google Cloud Functions with Kotlin",
+    "url": "https://codenerve.com/creating-google-cloud-functions-in-kotlin/",
+    "datePublished": "2020-10-05T21:41:19.000Z",
+    "dateModified": "2020-10-06T21:08:34.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
+        "url": "https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
         "width": 2000,
-        "height": 1333
+        "height": 3000
     },
-    "keywords": "Spring Cloud, Kotlin, Spring",
-    "description": "Whether you deploy to the cloud or on-prem, one of the biggest challenges of a\nmicroservice or distributed architecture is monitoring.\n\nZipkin [https://github.com/openzipkin/zipkin] is a distributed tracing system\nthat can help to solve some of these problems. Specifically, it helps gather\ndata needed to troubleshoot latency issues.\n\nIn this article, we look at spring clouds support for Zipkin by setting up some\nspring boot REST services.\n\nThe example code is written in kotlin but can easily be ",
+    "keywords": "Kotlin, GCP",
+    "description": "In May 2020 google announced that Java 11 was coming to Google Cloud Functions\n[https://cloud.google.com/blog/products/application-development/introducing-java-11-on-google-cloud-functions]\n. Naturally, my first thought was, can I write functions in Kotlin?\n\nThankfully there is no such limitation. In fact, you could write your functions\nin any JVM language of your choosing.\n\n\n\n&gt; Source code for this example can be found on GitHub:\ncodenerve-com/kotlin-google-cloud-functionContribute to\ncodenerve",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://codenerve.com/"
@@ -665,67 +665,122 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">Tracing REST Services with Zipkin</h1>
+                <h1 class="post-title">Creating Google Cloud Functions with Kotlin</h1>
                 <section class="post-meta">
                     Michael Whyte -
-                    <time class="post-date" datetime="2020-07-17">17 Jul 2020</time>
+                    <time class="post-date" datetime="2020-10-05">05 Oct 2020</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" width="600" height="340" layout="responsive"></amp-img>
+                <amp-img src="https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" width="600" height="340" layout="responsive"></amp-img>
             </figure>
             <section class="post-content">
 
-                <p>Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring.</p><p><a href="https://github.com/openzipkin/zipkin">Zipkin</a> is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues.</p><p>In this article, we look at <strong>spring clouds support for Zipkin</strong> by setting up some spring boot REST services.</p><p>The example code is written in kotlin but can easily be ported over to java.</p><p></p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/tutorials/tree/master/kotlin/spring-cloud-zipkin"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/tutorials</div><div class="kg-bookmark-description">Example code for blog posts written over @ codenerve.com - codenerve-com/tutorials</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><hr></hr><h3 id="prerequisites">Prerequisites</h3><p>You'll need some things to follow along with the example:</p><ul><li>Java</li><li>Gradle</li><li>Docker (including <a href="https://docs.docker.com/compose/install/">docker-compose</a>)</li><li>The source code cloned and imported into your IDE</li></ul><h3 id="setting-the-scene">Setting the scene</h3><p>To demonstrate Zipkin's tracing abilities, we are going to bring up some fictitious services that our service can make requests to.</p><p><br />Our service will return the tax of an employee based on their name:</p><pre><code class="language-bash">$ curl http://localhost:8080/tax\?name\=michael
-$ 10000.0</code></pre><p>To do this, it needs some help for other services:</p><ul><li>An employee service which will return employee information by name</li><li>A payroll service which will return the employees tax code by employee id.</li></ul><p>Finally, our service will calculate and return the tax to be paid.</p><p>Additionally, we will bring up a Zipkin server which our service will push trace data to.</p><figure class="kg-card kg-image-card"></figure><hr></hr><p>The employee and payroll service will be mocked out using <a href="https://www.mock-server.com/">mockserver</a>. We will not be covering mockserver in this post. </p><p>There are two json files under the dist directory that tell the mock services how to respond to requests, including some delays which will slow down there response times.</p><hr></hr><h3 id="compose">Compose</h3><p>To manage all this, we will be using a docker compose yml file:</p><figure class="kg-card kg-code-card"><pre><code class="language-java">version: '2.0'
-services:
-  zipkin:
-    container_name: zipkin
-    image: openzipkin/zipkin
-    ports:
-      - 8081:9411
+                <p>In May 2020 google announced that Java 11 was coming to <a href="https://cloud.google.com/blog/products/application-development/introducing-java-11-on-google-cloud-functions">Google Cloud Functions</a>. Naturally, my first thought was, can I write functions in Kotlin?</p><p>Thankfully there is no such limitation. In fact, you could write your functions in any JVM language of your choosing.</p><p></p><blockquote><strong>Source code for this example can be found on GitHub:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/kotlin-google-cloud-function"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/kotlin-google-cloud-function</div><div class="kg-bookmark-description">Contribute to codenerve-com/kotlin-google-cloud-function development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><h2 id="prerequisites">Prerequisites</h2><p>You'll need some things to follow along with the example:</p><ul><li>Java 11</li><li>Gradle</li><li>Access to GCP with a sample <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">project created</a></li><li>gcloud <a href="https://cloud.google.com/sdk/#Quick_Start">installed</a> and authenticated</li><li>The source code cloned and imported into your IDE</li></ul><hr></hr><h2 id="main-function">Main Function</h2><p>The main function of this example is a straightforward one to get us started. A basic HTTP endpoint that will return "FUNCTION COMPLETE" when triggered.</p><pre><code class="language-kotlin">package com.codenerve.function
 
-  employee-service:
-    container_name: employee-service
-    image: mockserver/mockserver
-    ports:
-      - 8082:1080
-    environment:
-      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/initializerJson.json
-    volumes:
-    - ./dist/employee-service:/config
+import com.google.cloud.functions.HttpFunction
+import com.google.cloud.functions.HttpRequest
+import com.google.cloud.functions.HttpResponse
+import mu.KotlinLogging
+import java.io.IOException
 
-  payroll-service:
-    container_name: payroll-service
-    image: mockserver/mockserver
-    ports:
-      - 8083:1080
-    environment:
-      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/initializerJson.json
-    volumes:
-      - ./dist/payroll-service:/config
-</code></pre><figcaption><a href="https://github.com/codenerve-com/tutorials/blob/master/kotlin/spring-cloud-zipkin/docker-compose.yml">docker-compose.yml</a></figcaption></figure><p></p><p>Let's start everything up now by running:</p><pre><code class="language-bash">docker-compose -f docker-compose.yml up</code></pre><p><em>N.B you can optionally background the process by adding -d to the end of this command</em></p><h3 id="creating-a-basic-rest-service">Creating a Basic Rest Service</h3><p>Creating the service is very simple, and if you're happy with spring boots defaults then this only involves adding a jar to your maven pom or gradle file!</p><figure class="kg-card kg-code-card"><pre><code class="language-kts">implementation("org.springframework.cloud:spring-cloud-starter-zipkin")</code></pre><figcaption><a href="https://github.com/codenerve-com/tutorials/blob/master/kotlin/spring-cloud-zipkin/build.gradle.kts">build.gradle.kts</a></figcaption></figure><figure class="kg-card kg-code-card"><pre><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt;
-    &lt;version&gt;2.2.0.RC1&lt;/version&gt;
-&lt;/dependency&gt;</code></pre><figcaption><a href="https://github.com/codenerve-com/tutorials/blob/master/kotlin/spring-cloud-zipkin/pom.xml">pom.xml</a></figcaption></figure><p>Default properties such as zipkin urls can be overidden under <em>src/main/resources/application.properties</em> </p><p>A full list of properties are listed in the spring cloud <a href="https://cloud.spring.io/spring-cloud-sleuth/reference/html/appendix.html">documentation</a></p><h3 id="hitting-the-endpoint">Hitting the endpoint</h3><p>Start the service in your IDE and navigate to it in your browser:</p><table>
-  <tr>
-    <td>Service</td>
-    <td><a href="http://localhost:8080/tax?name=michael">http://localhost:8080/tax?name=michael"</a></td>
-  </tr>
-  <tr>
-    <td>Zipkin UI</td>
-    <td><a href="http://localhost:8081">http://localhost:8081</a></td>
-  </tr>
-  <tr>
-    <td>Mock Employee Service</td>
-    <td><a href="http://localhost:8082/employeeService">http://localhost:8082/employeeService</a></td>
-  </tr>
-  <tr>
-    <td>Mock Payroll Service</td>
-    <td><a href="http://localhost:8083/payrollService">http://localhost:8083/payrollService</a></td>
-  </tr>
-</table><p></p><p>Now navigate to the Zipkin UI. Click on <em>Find Traces</em> and you will see the trace you created by opening the service url. </p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>zipkin ui</figcaption></figure><hr></hr><p>Click on a span to expand it:</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>zipkin ui</figcaption></figure><h3 id="apache-benchmark">Apache Benchmark</h3><p>Additionally you could use a tool like <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">apache benchmark</a> to put the service under some load. This will create more traces that can be viewed in the zipkin ui:</p><pre><code class="language-html">ab -n 500 -c 20 "http://localhost:8080/tax?name=michael"</code></pre><p></p><h3 id="conclusion">Conclusion </h3><p>We've seen just how easy it is to add tracing to your spring cloud application. </p><p>For more info, see the <a href="https://docs.spring.io/spring-cloud-sleuth/docs/current-SNAPSHOT/reference/html/">spring cloud docs</a> or the <a href="https://github.com/openzipkin/sleuth-webmvc-example">openzipkin examples</a> on github. </p><p></p>
+class App : HttpFunction {
+
+    private val logger = KotlinLogging.logger {}
+
+    @Throws(IOException::class)
+    override fun service(request: HttpRequest, response: HttpResponse) {
+        logger.info { "hello world" }
+        response.writer.write("FUNCTION COMPLETE")
+    }
+}</code></pre><p>This class extends HttpFunction from the functions-framework-api library, and the function <em>service</em> takes a HttpRequest and a HttpResponse object.</p><p>For other non HttpFunction ways to <a href="https://cloud.google.com/functions/docs/calling">trigger a cloud function</a>. You can use a RawBackgroundFunction or a typed variant BackgroundFunction&lt;PubSubMessage&gt; instead of HttpFunction. You can find examples for other triggering mechanisms in the <a href="https://github.com/GoogleCloudPlatform/functions-framework-java">functions-framework-java</a> readme.</p><p></p><h2 id="gradle-build-file">Gradle Build File</h2><p>For this example, we are using <a href="https://docs.gradle.org/current/userguide/kotlin_dsl.html">gradles kotlin dsl</a> to configure our function. </p><figure class="kg-card kg-code-card"><pre><code class="language-kotlin">import java.lang.invoke.MethodHandles.invoker
+
+val invoker by configurations.creating
+
+plugins {
+    id("org.jetbrains.kotlin.jvm") version "1.3.72"
+    id("com.github.johnrengelman.shadow") version "6.0.0"
+    application
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("io.github.microutils:kotlin-logging:1.11.5")
+    implementation("com.google.cloud.functions:functions-framework-api:1.0.1")
+    invoker("com.google.cloud.functions.invoker:java-function-invoker:1.0.0-alpha-2-rc5")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    testImplementation("org.mockito:mockito-core:3.5.10")
+    testImplementation("com.google.truth:truth:1.0.1")
+    testImplementation("com.google.guava:guava-testlib:29.0-jre")
+}
+
+application {
+    mainClassName = "com.codenerve.function.AppKt"
+}
+
+
+task&lt;JavaExec&gt;("runFunction") {
+    main = "com.google.cloud.functions.invoker.runner.Invoker"
+    classpath(invoker)
+    inputs.files(configurations.runtimeClasspath, sourceSets["main"].output)
+    args(
+        "--target", project.findProperty("runFunction.target") ?: "com.codenerwve.function.App",
+        "--port", project.findProperty("runFunction.port") ?: 8080
+    )
+    doFirst {
+        args("--classpath", files(configurations.runtimeClasspath, sourceSets["main"].output).asPath)
+    }
+}
+
+tasks.named("build") {
+    dependsOn(":shadowJar")
+}
+
+task("buildFunction") {
+    dependsOn("build")
+    copy {
+        from("build/libs/" + rootProject.name + "-all.jar")
+        into("build/deploy")
+    }
+}
+</code></pre><figcaption><a href="https://github.com/codenerve-com/kotlin-google-cloud-function/blob/main/build.gradle.kts">build.gradle.kts</a></figcaption></figure><h3 id="dependencies">Dependencies</h3><p>There are a few critical dependencies</p><ul><li><a href="https://github.com/GoogleCloudPlatform/functions-framework-java">functions-framework-api</a> allows us to write lightweight functions that run in many different environments, including google cloud functions and cloud run.</li><li>Java-function-invoker enables us to run the function locally for testing.</li></ul><hr></hr><h3 id="runfunction-task">runFunction task</h3><p>The runFunction task in the Gradle build file triggers the java-function-invoker which wraps the function and serves it using a jetty web server.</p><p>To run the function locally, call runFunction using the Gradle wrapper:</p><figure class="kg-card kg-code-card"><pre><code class="language-java"> ./gradlew runFunction
+ 
+ ❯ ./gradlew runFunction 
+
+&gt; Task :runFunction
+INFO: Serving function...
+Oct 06, 2020 9:10:09 PM com.google.cloud.functions.invoker.runner.Invoker logServerInfo
+INFO: Function: com.codenerve.function.App
+Oct 06, 2020 9:10:09 PM com.google.cloud.functions.invoker.runner.Invoker logServerInfo
+INFO: URL: http://localhost:8080/
+&lt;==========---&gt; 80% EXECUTING [1m 13s]
+&gt; :runFunction
+
+</code></pre><figcaption>(logging shortened for readability)</figcaption></figure><p>Optionally some args can be overridden:</p><pre><code class="language-java">./gradlew runFunction -PrunFunction.target=com.codenerve.function.App -PrunFunction.port=8080</code></pre><hr></hr><h3 id="buildfunction-task">buildFunction Task</h3><p>The buildFunction task in the Gradle build file works with the com.github.johnrengelman.shadow Gradle plugin to create a fat jar and copy it to the build/deploy directory ready to be uploaded to GCP Cloud Storage.</p><p>To execute this again, use the Gradle wrapper:</p><pre><code class="language-kotlin">❯ ./gradlew buildFunction 
+
+BUILD SUCCESSFUL in 2s
+10 actionable tasks: 9 executed, 1 up-to-date
+</code></pre><hr></hr><h2 id="deploying-with-gcloud">Deploying with gcloud</h2><p>So you've tested your function locally and its time to deploy. Deploying can be achieved easily with the <a href="https://cloud.google.com/sdk/docs/downloads-interactive">gcloud command-line utility</a>.</p><p>First, ensure you are deploying to the GCP Project of your choice:</p><pre><code class="language-kotlin">gcloud config get-value project
+
+my-functions-project</code></pre><p>Then select the region you wish to deploy to :</p><pre><code class="language-java">gcloud config set functions/region europe-west1</code></pre><p>Lastly, deploy the function:</p><pre><code class="language-kotlin">gcloud functions deploy my-test-function \
+--entry-point=com.codenerve.function.App \
+--source=build/deploy --runtime=java11 --trigger-http \
+--allow-unauthenticated</code></pre><p>N.B. the entry is the fully qualified class name of the function, and the source is the location of our fat jar.</p><p>If you open the GCP console and navigate to Cloud Functions, you'll see the function:</p><figure class="kg-card kg-image-card"></figure><p>From here you can open it and view various information including the trigger. Alternatively, you can run a describe:</p><pre><code>gcloud functions describe my-test-function
+
+availableMemoryMb: 256
+buildId: 35e82211-d38b-4c79-b2c5-70af0a665480
+entryPoint: com.codenerve.function.App
+httpsTrigger:
+  url: https://europe-west1-slice-poc.cloudfunctions.net/my-test-function
+.... shortened ....</code></pre><p>Hitting the trigger URL, you will see you function return:</p><pre><code>❯ curl https://europe-west1-slice-poc.cloudfunctions.net/my-test-function
+FUNCTION COMPLETE%</code></pre><p></p><h2 id="conclusion">Conclusion</h2><p>We've seen just how easy it is to deploy a kotlin function to GCP. To explore the topic further. I'd recommend the following documentation:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://cloud.google.com/functions/docs"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Cloud Functions documentation | Cloud Functions Documentation</div><div class="kg-bookmark-description">Small, single-purpose functions.</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.gstatic.com/devrel-devsite/prod/v85e39fe21f53c758adf6c791fb94a7a2182cff2705b3dc8ed7c59fc745471159/cloud/images/favicons/onecloud/super_cloud.png" width="192" height="192" layout="fixed"></amp-img><span class="kg-bookmark-publisher">Google Cloud</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://cloud.google.com/images/social-icon-google-cloud-1200-630.png" width="1200" height="630" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/GoogleCloudPlatform/functions-framework-java"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-description">FaaS (Function as a service) framework for writing portable Java functions - GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">GoogleCloudPlatform</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars2.githubusercontent.com/u/2810941?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/GoogleCloudPlatform/functions-framework-java/issues/35"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Running a function with Gradle &amp; Kotlin (build.gradle.kts) · Issue #35 · GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-description">Thanks for putting all this together! I was trying to get the local invoker working on my local machine, which is setup using kotlin (1.3.72) and gradle (6.4.1) via the build.gradle.kts file. The G...</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">GoogleCloudPlatform</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars2.githubusercontent.com/u/2810941?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><p></p><p></p><p></p>
 
             </section>
 
