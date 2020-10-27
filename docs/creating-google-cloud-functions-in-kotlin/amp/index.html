@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://codenerve.com/creating-google-cloud-functions-in-kotlin/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2020-10-05T21:41:19.000Z" />
-    <meta property="article:modified_time" content="2020-10-06T21:37:48.000Z" />
+    <meta property="article:modified_time" content="2020-10-07T19:15:52.000Z" />
     <meta property="article:tag" content="Kotlin" />
     <meta property="article:tag" content="GCP" />
     
@@ -69,7 +69,7 @@
     "headline": "Creating Google Cloud Functions with Kotlin",
     "url": "https://codenerve.com/creating-google-cloud-functions-in-kotlin/",
     "datePublished": "2020-10-05T21:41:19.000Z",
-    "dateModified": "2020-10-06T21:37:48.000Z",
+    "dateModified": "2020-10-07T19:15:52.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1573220606811-bb3dce8a99ba?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
@@ -650,7 +650,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
 </head>
 
@@ -750,7 +750,7 @@ task("buildFunction") {
         into("build/deploy")
     }
 }
-</code></pre><figcaption><a href="https://github.com/codenerve-com/kotlin-google-cloud-function/blob/main/build.gradle.kts">build.gradle.kts</a></figcaption></figure><h3 id="dependencies">Dependencies</h3><p>There are a few critical dependencies</p><ul><li><a href="https://github.com/GoogleCloudPlatform/functions-framework-java">Functions-framework-api</a> allows us to write lightweight functions that run in many different environments, including google cloud functions and cloud run.</li><li>Java-function-invoker enables us to run the function locally for testing.</li></ul><hr></hr><h3 id="runfunction-task">runFunction task</h3><p>The runFunction task in the Gradle build file triggers the java-function-invoker which wraps the function and serves it using a jetty web server.</p><p>To run the function locally, call runFunction using the Gradle wrapper:</p><figure class="kg-card kg-code-card"><pre><code class="language-java"> ./gradlew runFunction
+</code></pre><figcaption><a href="https://github.com/codenerve-com/kotlin-google-cloud-function/blob/main/build.gradle.kts">build.gradle.kts</a></figcaption></figure><h3 id="dependencies">Dependencies</h3><p>There are a few critical dependencies</p><ul><li><a href="https://github.com/GoogleCloudPlatform/functions-framework-java">Functions-framework-api</a> allows us to write lightweight functions that run in many different environments, including google cloud functions and cloud run.</li><li>Java-function-invoker enables us to run the function locally for testing.</li></ul><hr></hr><h3 id="runfunction-task">runFunction task</h3><p>The runFunction task in the Gradle build file triggers the java-function-invoker which wraps the function and serves it using a jetty web server.</p><p>To run the function locally, call runFunction using the Gradle wrapper:</p><figure class="kg-card kg-code-card"><pre><code class="language-bash"> ./gradlew runFunction
  
  ❯ ./gradlew runFunction 
 
@@ -763,23 +763,23 @@ INFO: URL: http://localhost:8080/
 &lt;==========---&gt; 80% EXECUTING [1m 13s]
 &gt; :runFunction
 
-</code></pre><figcaption>(logging shortened for readability)</figcaption></figure><p>Optionally some args can be overridden:</p><pre><code class="language-java">./gradlew runFunction -PrunFunction.target=com.codenerve.function.App -PrunFunction.port=8080</code></pre><hr></hr><h3 id="buildfunction-task">buildFunction Task</h3><p>The buildFunction task in the Gradle build file works with the <a href="https://github.com/johnrengelman/shadow">com.github.johnrengelman.shadow</a> Gradle plugin to create a fat jar and copy it to the build/deploy directory ready to be uploaded to GCP Cloud Storage.</p><p>To execute this, use the Gradle wrapper:</p><pre><code class="language-kotlin">❯ ./gradlew buildFunction 
+</code></pre><figcaption>(logging shortened for readability)</figcaption></figure><p>Optionally some args can be overridden:</p><pre><code class="language-bash">./gradlew runFunction -PrunFunction.target=com.codenerve.function.App -PrunFunction.port=8080</code></pre><hr></hr><h3 id="buildfunction-task">buildFunction Task</h3><p>The buildFunction task in the Gradle build file works with the <a href="https://github.com/johnrengelman/shadow">com.github.johnrengelman.shadow</a> Gradle plugin to create a fat jar and copy it to the build/deploy directory ready to be uploaded to GCP Cloud Storage.</p><p>To execute this, use the Gradle wrapper:</p><pre><code class="language-bash">❯ ./gradlew buildFunction 
 
 BUILD SUCCESSFUL in 2s
 10 actionable tasks: 9 executed, 1 up-to-date
-</code></pre><hr></hr><h2 id="deploying-with-gcloud">Deploying with gcloud</h2><p>So you've tested your function locally and its time to deploy. Deploying can be achieved easily with the <a href="https://cloud.google.com/sdk/docs/downloads-interactive">gcloud command-line utility</a>.</p><p>First, ensure you are deploying to the GCP Project of your choice:</p><pre><code class="language-kotlin">gcloud config get-value project
+</code></pre><hr></hr><h2 id="deploying-with-gcloud">Deploying with gcloud</h2><p>So you've tested your function locally and its time to deploy. Deploying can be achieved easily with the <a href="https://cloud.google.com/sdk/docs/downloads-interactive">gcloud command-line utility</a>.</p><p>First, ensure you are deploying to the GCP Project of your choice:</p><pre><code class="language-bash">gcloud config get-value project
 
-my-functions-project</code></pre><p>Then select the region you wish to deploy to :</p><pre><code class="language-java">gcloud config set functions/region europe-west1</code></pre><p>Lastly, deploy the function:</p><pre><code class="language-kotlin">gcloud functions deploy my-test-function \
+my-functions-project</code></pre><p>Then select the region you wish to deploy to :</p><pre><code class="language-bash">gcloud config set functions/region europe-west1</code></pre><p>Lastly, deploy the function:</p><pre><code class="language-bash">gcloud functions deploy my-test-function \
 --entry-point=com.codenerve.function.App \
 --source=build/deploy --runtime=java11 --trigger-http \
---allow-unauthenticated</code></pre><p>N.B. the entry-point argument is the fully qualified class name of the function, and the source is the location of our fat jar.</p><p>If you open the GCP console and navigate to Cloud Functions, you'll see the function:</p><figure class="kg-card kg-image-card"></figure><p>From here you can open it and view various information including the trigger. Alternatively, you can run a describe from gcloud:</p><pre><code>gcloud functions describe my-test-function
+--allow-unauthenticated</code></pre><p>N.B. the entry-point argument is the fully qualified class name of the function, and the source is the location of our fat jar.</p><p>If you open the GCP console and navigate to Cloud Functions, you'll see the function:</p><figure class="kg-card kg-image-card"></figure><p>From here you can open it and view various information including the trigger. Alternatively, you can run a describe from gcloud:</p><pre><code class="language-bash">gcloud functions describe my-test-function
 
 availableMemoryMb: 256
 buildId: 35e82211-d38b-4c79-b2c5-70af0a665480
 entryPoint: com.codenerve.function.App
 httpsTrigger:
   url: https://europe-west1-slice-poc.cloudfunctions.net/my-test-function
-.... shortened ....</code></pre><p>Hitting the trigger URL, you will see the function return the expected response:</p><pre><code>❯ curl https://europe-west1-slice-poc.cloudfunctions.net/my-test-function
+.... shortened ....</code></pre><p>Hitting the trigger URL, you will see the function return the expected response:</p><pre><code class="language-bash">❯ curl https://europe-west1-slice-poc.cloudfunctions.net/my-test-function
 FUNCTION COMPLETE%</code></pre><p></p><h2 id="conclusion">Conclusion</h2><p>We've seen just how easy it is to deploy a kotlin function to GCP. To explore the topic further. I'd recommend the following documentation:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://cloud.google.com/functions/docs"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Cloud Functions documentation | Cloud Functions Documentation</div><div class="kg-bookmark-description">Small, single-purpose functions.</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.gstatic.com/devrel-devsite/prod/v85e39fe21f53c758adf6c791fb94a7a2182cff2705b3dc8ed7c59fc745471159/cloud/images/favicons/onecloud/super_cloud.png" width="192" height="192" layout="fixed"></amp-img><span class="kg-bookmark-publisher">Google Cloud</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://cloud.google.com/images/social-icon-google-cloud-1200-630.png" width="1200" height="630" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/GoogleCloudPlatform/functions-framework-java"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-description">FaaS (Function as a service) framework for writing portable Java functions - GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">GoogleCloudPlatform</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars2.githubusercontent.com/u/2810941?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/GoogleCloudPlatform/functions-framework-java/issues/35"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Running a function with Gradle &amp; Kotlin (build.gradle.kts) · Issue #35 · GoogleCloudPlatform/functions-framework-java</div><div class="kg-bookmark-description">Thanks for putting all this together! I was trying to get the local invoker working on my local machine, which is setup using kotlin (1.3.72) and gradle (6.4.1) via the build.gradle.kts file. The G...</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">GoogleCloudPlatform</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars2.githubusercontent.com/u/2810941?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><p></p><p></p><p></p>
 
             </section>
@@ -794,5 +794,18 @@ FUNCTION COMPLETE%</code></pre><p></p><h2 id="conclusion">Conclusion</h2><p>We'v
         <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
     </footer>
     
+            <amp-analytics type="gtag" data-credentials="include">
+                <script type="application/json">
+                    {
+                        "vars" : {
+                            "gtag_id": "UA-51518117-1",
+                            "config" : {
+                                "UA-51518117-1": { "groups": "default" }
+                            }
+                        }
+                    }
+                </script>
+            </amp-analytics>
+        
 </body>
 </html>
