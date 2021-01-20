@@ -1,6 +1,5 @@
 .idea
 *.iml
 doc/
-content/data/ghost-local.db
 content/logs/*.log
 .ghostpid

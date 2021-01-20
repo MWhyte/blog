@@ -1,4 +1,4 @@
 User-agent: *
-Sitemap: https://codenerve.com/sitemap.xml
+Sitemap: http://localhost:2368/sitemap.xml
 Disallow: /ghost/
 Disallow: /p/

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tracing REST Services with Zipkin</title>
-    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=b63caf467f.css">
+    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=09dd2847fa.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
 
     <script>
@@ -43,7 +43,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Tracing REST Services with Zipkin" />
     <meta property="og:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta property="og:url" content="https://codenerve.com/spring-cloud-zipkin/" />
+    <meta property="og:url" content="http://localhost:2368/spring-cloud-zipkin/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2020-07-17T20:01:49.000Z" />
     <meta property="article:modified_time" content="2020-09-29T22:50:58.000Z" />
@@ -55,7 +55,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tracing REST Services with Zipkin" />
     <meta name="twitter:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta name="twitter:url" content="https://codenerve.com/spring-cloud-zipkin/" />
+    <meta name="twitter:url" content="http://localhost:2368/spring-cloud-zipkin/" />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Michael Whyte" />
@@ -73,10 +73,10 @@
     "publisher": {
         "@type": "Organization",
         "name": "codenerve",
-        "url": "https://codenerve.com/",
+        "url": "http://localhost:2368/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://codenerve.com/favicon.png",
+            "url": "http://localhost:2368/favicon.png",
             "width": 60,
             "height": 60
         }
@@ -86,17 +86,17 @@
         "name": "Michael Whyte",
         "image": {
             "@type": "ImageObject",
-            "url": "https://codenerve.com/content/images/2020/07/Photo-30-08-2015--16-16-43--1-.jpg",
+            "url": "http://localhost:2368/content/images/2020/07/Photo-30-08-2015--16-16-43--1-.jpg",
             "width": 1520,
             "height": 2688
         },
-        "url": "https://codenerve.com/author/michael/",
+        "url": "http://localhost:2368/author/michael/",
         "sameAs": [
             "https://twitter.com/mwhyte_"
         ]
     },
     "headline": "Tracing REST Services with Zipkin",
-    "url": "https://codenerve.com/spring-cloud-zipkin/",
+    "url": "http://localhost:2368/spring-cloud-zipkin/",
     "datePublished": "2020-07-17T20:01:49.000Z",
     "dateModified": "2020-09-29T22:50:58.000Z",
     "image": {
@@ -109,7 +109,7 @@
     "description": "Whether you deploy to the cloud or on-prem, one of the biggest challenges of a\nmicroservice or distributed architecture is monitoring.\n\nZipkin [https://github.com/openzipkin/zipkin] is a distributed tracing system\nthat can help to solve some of these problems. Specifically, it helps gather\ndata needed to troubleshoot latency issues.\n\nIn this article, we look at spring clouds support for Zipkin by setting up some\nspring boot REST services.\n\nThe example code is written in kotlin but can easily be ",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://codenerve.com/"
+        "@id": "http://localhost:2368/"
     }
 }
     </script>
@@ -221,7 +221,7 @@ services:
 &lt;/dependency&gt;</code></pre><figcaption><a href="https://github.com/codenerve-com/tutorials/blob/master/kotlin/spring-cloud-zipkin/pom.xml">pom.xml</a></figcaption></figure><p>Default properties such as zipkin urls can be overidden under <em>src/main/resources/application.properties</em> </p><p>A full list of properties are listed in the spring cloud <a href="https://cloud.spring.io/spring-cloud-sleuth/reference/html/appendix.html">documentation</a></p><h3 id="hitting-the-endpoint">Hitting the endpoint</h3><p>Start the service in your IDE and navigate to it in your browser:</p><!--kg-card-begin: html--><table style="width:100%">
   <tr>
     <td>Service</td>
-    <td><a href="http://localhost:8080/tax?name=michael">http://localhost:8080/tax?name=michael"</a></td>
+    <td><a href="../tax%3Fname=michael.html">http://localhost:8080/tax?name=michael"</a></td>
   </tr>
   <tr>
     <td>Zipkin UI</td>
@@ -238,15 +238,15 @@ services:
 </table><!--kg-card-end: html--><p></p><p>Now navigate to the Zipkin UI. Click on <em>Find Traces</em> and you will see the trace you created by opening the service url. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-1-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-1-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-1-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-1-1.png 1600w, ../content/images/2020/07/zipkin-ui-1-1.png 1656w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><hr><p>Click on a span to expand it:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2020/07/zipkin-ui-2-1.png" class="kg-image" alt srcset="../content/images/size/w600/2020/07/zipkin-ui-2-1.png 600w, ../content/images/size/w1000/2020/07/zipkin-ui-2-1.png 1000w, ../content/images/size/w1600/2020/07/zipkin-ui-2-1.png 1600w, ../content/images/size/w2400/2020/07/zipkin-ui-2-1.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>zipkin ui</figcaption></figure><h3 id="apache-benchmark">Apache Benchmark</h3><p>Additionally you could use a tool like <a href="https://httpd.apache.org/docs/2.4/programs/ab.html">apache benchmark</a> to put the service under some load. This will create more traces that can be viewed in the zipkin ui:</p><pre><code class="language-html">ab -n 500 -c 20 "http://localhost:8080/tax?name=michael"</code></pre><p></p><h3 id="conclusion">Conclusion </h3><p>We've seen just how easy it is to add tracing to your spring cloud application. </p><p>For more info, see the <a href="https://docs.spring.io/spring-cloud-sleuth/docs/current-SNAPSHOT/reference/html/">spring cloud docs</a> or the <a href="https://github.com/openzipkin/sleuth-webmvc-example">openzipkin examples</a> on github. </p><p></p>
         </div>
         <div class="share u-hover-wrapper">
-  <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=https://codenerve.com/spring-cloud-zipkin/" target="_blank"><i class="icon icon-facebook"></i></a>
-  <a class="share-item share-twitter u-hover-item" href="https://twitter.com/intent/tweet?url=https://codenerve.com/spring-cloud-zipkin/&text=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-twitter"></i></a>
-  <a class="share-item share-pinterest u-hover-item" href="https://pinterest.com/pin/create/button/?url=https://codenerve.com/spring-cloud-zipkin/&media=&description=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-pinterest"></i></a>
-  <a class="share-item share-linkedin u-hover-item" href="https://www.linkedin.com/shareArticle?mini=true&url=https://codenerve.com/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-linkedin"></i></a>
-  <a class="share-item share-reddit u-hover-item" href="https://reddit.com/submit?url=https://codenerve.com/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-reddit"></i></a>
-  <a class="share-item share-tumblr u-hover-item" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://codenerve.com/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-tumblr"></i></a>
-  <a class="share-item share-vk u-hover-item" href="http://vk.com/share.php?url=https://codenerve.com/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-vk"></i></a>
-  <a class="share-item share-pocket u-hover-item" href="https://getpocket.com/edit?url=https://codenerve.com/spring-cloud-zipkin/" target="_blank"><i class="icon icon-pocket"></i></a>
-  <a class="share-item share-telegram u-hover-item" href="https://t.me/share/url?url=https://codenerve.com/spring-cloud-zipkin/&text=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-telegram"></i></a>
+  <a class="share-item share-facebook u-hover-item" href="https://www.facebook.com/sharer.php?u=http://localhost:2368/spring-cloud-zipkin/" target="_blank"><i class="icon icon-facebook"></i></a>
+  <a class="share-item share-twitter u-hover-item" href="https://twitter.com/intent/tweet?url=http://localhost:2368/spring-cloud-zipkin/&text=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-twitter"></i></a>
+  <a class="share-item share-pinterest u-hover-item" href="https://pinterest.com/pin/create/button/?url=http://localhost:2368/spring-cloud-zipkin/&media=&description=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-pinterest"></i></a>
+  <a class="share-item share-linkedin u-hover-item" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:2368/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-linkedin"></i></a>
+  <a class="share-item share-reddit u-hover-item" href="https://reddit.com/submit?url=http://localhost:2368/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-reddit"></i></a>
+  <a class="share-item share-tumblr u-hover-item" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=http://localhost:2368/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-tumblr"></i></a>
+  <a class="share-item share-vk u-hover-item" href="http://vk.com/share.php?url=http://localhost:2368/spring-cloud-zipkin/&title=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-vk"></i></a>
+  <a class="share-item share-pocket u-hover-item" href="https://getpocket.com/edit?url=http://localhost:2368/spring-cloud-zipkin/" target="_blank"><i class="icon icon-pocket"></i></a>
+  <a class="share-item share-telegram u-hover-item" href="https://t.me/share/url?url=http://localhost:2368/spring-cloud-zipkin/&text=Tracing%20REST%20Services%20with%20Zipkin" target="_blank"><i class="icon icon-telegram"></i></a>
 </div>          <section class="author">
     <div class="author-image-placeholder u-placeholder">
       <img class="author-image lazyload u-object-fit" data-src="/content/images/size/w150/2020/07/Photo-30-08-2015--16-16-43--1-.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Michael Whyte">
@@ -387,7 +387,7 @@ services:
 
 <script>
   var disqus_config = function () {
-    this.page.url = 'https://codenerve.com/spring-cloud-zipkin/';
+    this.page.url = 'http://localhost:2368/spring-cloud-zipkin/';
     this.page.identifier = 'ghost-';
   };
 
@@ -424,13 +424,11 @@ services:
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
 </script>
-<script src="../assets/js/main.min.js%3Fv=b63caf467f"></script>
+<script src="../assets/js/main.min.js%3Fv=09dd2847fa"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-java.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-kotlin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-bash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-go.min.js"></script>
 
 
 

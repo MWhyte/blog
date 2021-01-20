@@ -14,7 +14,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Tracing REST Services with Zipkin" />
     <meta property="og:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta property="og:url" content="https://codenerve.com/spring-cloud-zipkin/" />
+    <meta property="og:url" content="http://localhost:2368/spring-cloud-zipkin/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta property="article:published_time" content="2020-07-17T20:01:49.000Z" />
     <meta property="article:modified_time" content="2020-09-29T22:50:58.000Z" />
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tracing REST Services with Zipkin" />
     <meta name="twitter:description" content="Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring. Zipkin is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues. In this article, we" />
-    <meta name="twitter:url" content="https://codenerve.com/spring-cloud-zipkin/" />
+    <meta name="twitter:url" content="http://localhost:2368/spring-cloud-zipkin/" />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1475115996703-5200b5adbc09?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;w&#x3D;2000&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Michael Whyte" />
@@ -44,10 +44,10 @@
     "publisher": {
         "@type": "Organization",
         "name": "codenerve",
-        "url": "https://codenerve.com/",
+        "url": "http://localhost:2368/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://codenerve.com/favicon.png",
+            "url": "http://localhost:2368/favicon.png",
             "width": 60,
             "height": 60
         }
@@ -57,17 +57,17 @@
         "name": "Michael Whyte",
         "image": {
             "@type": "ImageObject",
-            "url": "https://codenerve.com/content/images/2020/07/Photo-30-08-2015--16-16-43--1-.jpg",
+            "url": "http://localhost:2368/content/images/2020/07/Photo-30-08-2015--16-16-43--1-.jpg",
             "width": 1520,
             "height": 2688
         },
-        "url": "https://codenerve.com/author/michael/",
+        "url": "http://localhost:2368/author/michael/",
         "sameAs": [
             "https://twitter.com/mwhyte_"
         ]
     },
     "headline": "Tracing REST Services with Zipkin",
-    "url": "https://codenerve.com/spring-cloud-zipkin/",
+    "url": "http://localhost:2368/spring-cloud-zipkin/",
     "datePublished": "2020-07-17T20:01:49.000Z",
     "dateModified": "2020-09-29T22:50:58.000Z",
     "image": {
@@ -80,7 +80,7 @@
     "description": "Whether you deploy to the cloud or on-prem, one of the biggest challenges of a\nmicroservice or distributed architecture is monitoring.\n\nZipkin [https://github.com/openzipkin/zipkin] is a distributed tracing system\nthat can help to solve some of these problems. Specifically, it helps gather\ndata needed to troubleshoot latency issues.\n\nIn this article, we look at spring clouds support for Zipkin by setting up some\nspring boot REST services.\n\nThe example code is written in kotlin but can easily be ",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://codenerve.com/"
+        "@id": "http://localhost:2368/"
     }
 }
     </script>
@@ -657,7 +657,7 @@
 <body class="amp-template">
     <header class="page-header">
         <a href="../../index.html">
-                <amp-img class="site-icon" src="https://codenerve.com/content/images/2020/07/favicon.png" width="50" height="50" layout="fixed"></amp-img>
+                <amp-img class="site-icon" src="http://localhost:2368/content/images/2020/07/favicon.png" width="50" height="50" layout="fixed"></amp-img>
         </a>
     </header>
 
@@ -711,7 +711,7 @@ services:
 &lt;/dependency&gt;</code></pre><figcaption><a href="https://github.com/codenerve-com/tutorials/blob/master/kotlin/spring-cloud-zipkin/pom.xml">pom.xml</a></figcaption></figure><p>Default properties such as zipkin urls can be overidden under <em>src/main/resources/application.properties</em> </p><p>A full list of properties are listed in the spring cloud <a href="https://cloud.spring.io/spring-cloud-sleuth/reference/html/appendix.html">documentation</a></p><h3 id="hitting-the-endpoint">Hitting the endpoint</h3><p>Start the service in your IDE and navigate to it in your browser:</p><table>
   <tr>
     <td>Service</td>
-    <td><a href="http://localhost:8080/tax?name=michael">http://localhost:8080/tax?name=michael"</a></td>
+    <td><a href="../../tax%3Fname=michael.html">http://localhost:8080/tax?name=michael"</a></td>
   </tr>
   <tr>
     <td>Zipkin UI</td>
@@ -732,7 +732,7 @@ services:
         </article>
     </main>
     <footer class="page-footer">
-            <amp-img class="site-icon" src="https://codenerve.com/content/images/2020/07/favicon.png" width="50" height="50" layout="fixed"></amp-img>
+            <amp-img class="site-icon" src="http://localhost:2368/content/images/2020/07/favicon.png" width="50" height="50" layout="fixed"></amp-img>
         <h3>codenerve</h3>
             <p>Software Development Tutorials</p>
         <p><a href="../../index.html">Read more posts →</a></p>
