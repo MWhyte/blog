@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spring Security - User Roles and ThymeLeaf Extras</title>
-    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=b72719926a.css">
+    <link rel="stylesheet" href="../assets/css/screen.css%3Fv=003812a10e.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i,800">
 
     <script>
@@ -113,8 +113,72 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 3.40" />
+    <meta name="generator" content="Ghost 4.2" />
     <link rel="alternate" type="application/rss+xml" title="codenerve" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.1.0/umd/portal.min.js" data-ghost="https://codenerve.com/"></script><style> .gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51518117-1"></script>
 <script>
@@ -125,6 +189,7 @@
   gtag('config', 'UA-51518117-1');
 </script>
 <script data-ad-client="ca-pub-2950878170966490" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<style>:root {--ghost-accent-color: #15171A;}</style>
 </head>
 <body class="post-template tag-spring tag-java">
 <div class="container">
@@ -186,7 +251,7 @@
     </div>
   </div>
         <div class="post-content u-text-format">
-          <p>In the last lesson, we learnt how to use spring security to build a <a href="https://www.codenerve.com/spring-security-basic-login-form/">basic login form</a>. </p><p>Today, we'll be looking at adding user roles and some nice feature's of the Thymeleaf library to show and hide content based on these roles.</p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security/tree/2.thymeleaf-extras"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4"></div></a></figure><hr><h3 id="dependencies">Dependencies</h3><p>As with all Spring boot application's, there are a number of starter libraries that make it easy to add jars to your classpath. In addition, these can auto-configure various spring beans and behaviours that we can make use of. Building upon the previous lesson we will be adding:</p><ul><li>thymeleaf-extras-springsecurity4 - this has a number of additional features over the basic thymeleaf jar</li></ul><p></p><h3 id="websecurityconfig">WebSecurityConfig</h3><p>To begin this lesson we'll be adding another user to our application's WebSecurityConfig but this time giving them a new role 'admin':</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Autowired
+          <p>In the last lesson, we learnt how to use spring security to build a <a href="https://www.codenerve.com/spring-security-basic-login-form/">basic login form</a>. </p><p>Today, we'll be looking at adding user roles and some nice feature's of the Thymeleaf library to show and hide content based on these roles.</p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/spring-security/tree/2.thymeleaf-extras"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/spring-security</div><div class="kg-bookmark-description">An introduction to spring security. Contribute to codenerve-com/spring-security development by creating an account on GitHub.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg"><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">codenerve-com</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://avatars3.githubusercontent.com/u/58404900?s&#x3D;400&amp;v&#x3D;4"></div></a></figure><hr><h3 id="dependencies">Dependencies</h3><p>As with all Spring boot application's, there are a number of starter libraries that make it easy to add jars to your classpath. In addition, these can auto-configure various spring beans and behaviours that we can make use of. Building upon the previous lesson we will be adding:</p><ul><li>thymeleaf-extras-springsecurity4 - this has a number of additional features over the basic thymeleaf jar</li></ul><p></p><h3 id="websecurityconfig">WebSecurityConfig</h3><p>To begin this lesson we'll be adding another user to our application's WebSecurityConfig but this time giving them a new role 'admin':</p><figure class="kg-card kg-code-card"><pre><code class="language-java">@Autowired
 public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     auth
         .inMemoryAuthentication()
@@ -317,7 +382,7 @@ private Matcher&lt;String&gt; doesNotContainString(String s) {
       <div class="post-meta">
         <span class="post-meta-item post-meta-date">
           <time datetime="2019-05-03">
-              May 03, 2019
+              May 3, 2019
           </time>
         </span>
         <span class="post-meta-item post-meta-length">
@@ -411,7 +476,7 @@ private Matcher&lt;String&gt; doesNotContainString(String s) {
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
 </script>
-<script src="../assets/js/main.min.js%3Fv=b72719926a"></script>
+<script src="../assets/js/main.min.js%3Fv=003812a10e"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-java.min.js"></script>

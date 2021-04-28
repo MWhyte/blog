@@ -85,7 +85,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 3.40" />
+    <meta name="generator" content="Ghost 4.2" />
     <link rel="alternate" type="application/rss+xml" title="codenerve" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -210,7 +210,7 @@
     }
 
     a {
-        color: #1292EE;
+        color: var(--ghost-accent-color, #1292EE);
         text-decoration-skip-ink: auto;
     }
 
@@ -358,7 +358,7 @@
         top: 0;
         bottom: 0;
         width: 0.3rem;
-        background: #000;
+        background: var(--ghost-accent-color, #1292EE);
     }
 
     .post-content :not(.kg-card):not([id]) + .kg-card {
@@ -389,7 +389,7 @@
         font-weight: 400;
         font-size: 0.9em;
         line-height: 1em;
-        color: #dc0050;
+        color: #15171a;
         background: #f0f6f9;
         border-radius: 0.25em;
     }
@@ -645,6 +645,8 @@
             font-size: 1.7rem;
         }
     }
+
+    :root {--ghost-accent-color: #15171A;}
     </style>
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -676,7 +678,7 @@
             </figure>
             <section class="post-content">
 
-                <p>Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring.</p><p><a href="https://github.com/openzipkin/zipkin">Zipkin</a> is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues.</p><p>In this article, we look at <strong>spring clouds support for Zipkin</strong> by setting up some spring boot REST services.</p><p>The example code is written in kotlin but can easily be ported over to java.</p><p></p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/tutorials/tree/master/kotlin/spring-cloud-zipkin"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/tutorials</div><div class="kg-bookmark-description">Example code for blog posts written over @ codenerve.com - codenerve-com/tutorials</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">codenerve-com</span><span class="kg-bookmark-publisher">GitHub</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><hr></hr><h3 id="prerequisites">Prerequisites</h3><p>You'll need some things to follow along with the example:</p><ul><li>Java</li><li>Gradle</li><li>Docker (including <a href="https://docs.docker.com/compose/install/">docker-compose</a>)</li><li>The source code cloned and imported into your IDE</li></ul><h3 id="setting-the-scene">Setting the scene</h3><p>To demonstrate Zipkin's tracing abilities, we are going to bring up some fictitious services that our service can make requests to.</p><p><br />Our service will return the tax of an employee based on their name:</p><pre><code class="language-bash">$ curl http://localhost:8080/tax\?name\=michael
+                <p>Whether you deploy to the cloud or on-prem, one of the biggest challenges of a microservice or distributed architecture is monitoring.</p><p><a href="https://github.com/openzipkin/zipkin">Zipkin</a> is a distributed tracing system that can help to solve some of these problems. Specifically, it helps gather data needed to troubleshoot latency issues.</p><p>In this article, we look at <strong>spring clouds support for Zipkin</strong> by setting up some spring boot REST services.</p><p>The example code is written in kotlin but can easily be ported over to java.</p><p></p><blockquote><strong>Source code for this example can be found on github:</strong></blockquote><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/codenerve-com/tutorials/tree/master/kotlin/spring-cloud-zipkin"><div class="kg-bookmark-content"><div class="kg-bookmark-title">codenerve-com/tutorials</div><div class="kg-bookmark-description">Example code for blog posts written over @ codenerve.com - codenerve-com/tutorials</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://github.githubassets.com/favicons/favicon.svg" width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">codenerve-com</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://avatars3.githubusercontent.com/u/58404900?s=400&amp;v=4" width="460" height="460" layout="responsive"></amp-img></div></a></figure><hr></hr><h3 id="prerequisites">Prerequisites</h3><p>You'll need some things to follow along with the example:</p><ul><li>Java</li><li>Gradle</li><li>Docker (including <a href="https://docs.docker.com/compose/install/">docker-compose</a>)</li><li>The source code cloned and imported into your IDE</li></ul><h3 id="setting-the-scene">Setting the scene</h3><p>To demonstrate Zipkin's tracing abilities, we are going to bring up some fictitious services that our service can make requests to.</p><p><br />Our service will return the tax of an employee based on their name:</p><pre><code class="language-bash">$ curl http://localhost:8080/tax\?name\=michael
 $ 10000.0</code></pre><p>To do this, it needs some help for other services:</p><ul><li>An employee service which will return employee information by name</li><li>A payroll service which will return the employees tax code by employee id.</li></ul><p>Finally, our service will calculate and return the tax to be paid.</p><p>Additionally, we will bring up a Zipkin server which our service will push trace data to.</p><figure class="kg-card kg-image-card"></figure><hr></hr><p>The employee and payroll service will be mocked out using <a href="https://www.mock-server.com/">mockserver</a>. We will not be covering mockserver in this post. </p><p>There are two json files under the dist directory that tell the mock services how to respond to requests, including some delays which will slow down there response times.</p><hr></hr><h3 id="compose">Compose</h3><p>To manage all this, we will be using a docker compose yml file:</p><figure class="kg-card kg-code-card"><pre><code class="language-java">version: '2.0'
 services:
   zipkin:
