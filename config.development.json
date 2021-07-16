@@ -7,7 +7,7 @@
   "database": {
     "client": "sqlite3",
     "connection": {
-      "filename": "/Users/mrwhyte/local-dev/GitHub/blog/content/data/ghost-local.db"
+      "filename": "/Users/mrwhyte/Library/Mobile Documents/com~apple~CloudDocs/Development/Codenerve/codenerve-site/content/data/ghost-local.db"
     }
   },
   "mail": {
@@ -21,6 +21,6 @@
   },
   "process": "local",
   "paths": {
-    "contentPath": "/Users/mrwhyte/local-dev/GitHub/blog/content"
+    "contentPath": "/Users/mrwhyte/Library/Mobile Documents/com~apple~CloudDocs/Development/Codenerve/codenerve-site/content"
   }
 }
